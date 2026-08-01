@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install GOLDTRAP EA on MT5 | Aboi Original</title>
+<meta name="description" content="Six steps to install GOLDTRAP EA in MetaTrader 5: extract the file, open the data folder from MT5, copy into MQL5/Experts, refresh Navigator, whitelist the license URL, attach to the chart.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#05070E; --paper-2:#0A0F1E; --card:#0A0F1E;
+  --ink:#EAEEF7; --graphite:#8B99B4;
+  --rule:#1C2740; --rule-soft:#151E33;
+  --brass:#F2A94B; --brass-lift:#D98324;
+  --buy:#2FA37C; --sell:#D9584A;
+  --term:#080C16; --term-2:#101829; --term-rule:#1C2740; --term-ink:#EAEEF7;
+  --surface:#101829; --blue:#1E5BE6; --blue-bright:#3B8CFF;
+  --display:"Familjen Grotesk",system-ui,sans-serif;
+  --body:"Instrument Sans",system-ui,sans-serif;
+  --data:"IBM Plex Mono",ui-monospace,monospace;
+  --wrap:1200px; --gut:28px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background-color:var(--paper);
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:28px 28px;
+  color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gut)}
+.narrow{max-width:880px;margin:0 auto;padding:0 var(--gut)}
+.section{padding:74px 0;position:relative}
+.section + .section{border-top:1px solid var(--rule)}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:700;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1.04;letter-spacing:-.035em}
+h2{font-size:clamp(1.6rem,2.8vw,2.15rem);line-height:1.1}
+h3{font-size:1.09rem;line-height:1.3}
+p{margin:0}
+.lede{font-size:1.06rem;color:#A9B6CC;max-width:62ch}
+.tag{font-family:var(--data);font-size:.685rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--graphite)}
+.tag--brass{color:var(--brass)}
+.fine{font-family:var(--data);font-size:.66rem;line-height:1.7;color:var(--graphite)}
+.sec-head{display:flex;flex-direction:column;gap:13px;margin-bottom:40px;max-width:62ch}
+.sec-head .tag{display:flex;align-items:center;gap:10px}
+.sec-head .tag::after{content:"";flex:1;height:1px;background:var(--rule);min-width:40px}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--data);font-size:.76rem;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;text-decoration:none;padding:14px 22px;
+  border:1px solid var(--blue);background:var(--blue);color:#fff;
+  cursor:pointer;transition:transform .16s ease,background .16s ease,color .16s ease;
+}
+.btn:hover{transform:translateY(-2px);background:#2A68F0;border-color:#2A68F0}
+.btn--brass{background:var(--brass);border-color:var(--brass);color:#1A0E02}
+.btn--brass:hover{background:#F7BC6A;border-color:#F7BC6A}
+.btn--ghost{background:transparent;color:var(--ink);border-color:var(--rule)}
+.btn--ghost:hover{background:var(--surface);color:var(--ink);border-color:#2A3A5C}
+.btn--sm{padding:11px 16px;font-size:.7rem}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+.ticker{
+  border-bottom:1px solid var(--rule);background:var(--surface);color:#8B99B4;
+  font-family:var(--data);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:7px 0;overflow:hidden;white-space:nowrap
+}
+.ticker span{margin-right:34px}
+.ticker b{color:var(--brass-lift);font-weight:500}
+header.nav{position:sticky;top:0;z-index:50;background:rgba(5,7,14,.85);backdrop-filter:blur(9px);border-bottom:1px solid var(--rule)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:66px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none}
+.brand-mark{width:26px;height:26px;flex:none}
+.brand-name{font-family:var(--display);font-weight:700;font-size:1.06rem;letter-spacing:-.02em}
+.brand-sub{font-family:var(--data);font-size:.6rem;letter-spacing:.2em;color:var(--graphite);display:block;margin-top:-2px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-family:var(--data);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;text-decoration:none;color:var(--graphite);padding-bottom:2px;border-bottom:1px solid transparent}
+.nav-links a:hover{color:var(--ink);border-color:var(--brass)}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* hero */
+.hero{padding:64px 0 52px}
+.crumb{font-family:var(--data);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--graphite);margin-bottom:20px}
+.crumb a{text-decoration:none}
+.crumb a:hover{color:var(--brass)}
+.hero h1{margin:14px 0 18px}
+.hero h1 em{font-style:normal;color:var(--brass)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.warnbox{border:1px solid var(--rule);background:var(--card);border-left:3px solid var(--brass);padding:18px 20px;margin-top:32px}
+.warnbox h3{font-size:1rem;margin-bottom:8px}
+.warnbox p{font-size:.93rem;color:var(--graphite)}
+
+/* prerequisites */
+.pre{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);background:var(--card)}
+.pre div{padding:20px;border-right:1px solid var(--rule-soft)}
+.pre div:last-child{border-right:0}
+.pre .n{font-family:var(--data);font-size:.66rem;letter-spacing:.14em;color:var(--brass);display:block;margin-bottom:8px}
+.pre p{font-size:.93rem}
+@media(max-width:760px){.pre{grid-template-columns:1fr}.pre div{border-right:0;border-bottom:1px solid var(--rule-soft)}}
+
+/* steps */
+.steps{border-top:1px solid var(--rule)}
+.step{display:grid;grid-template-columns:74px 1fr;gap:22px;padding:28px 0;border-bottom:1px solid var(--rule-soft)}
+.step-n{font-family:var(--data);font-size:.78rem;font-weight:600;color:var(--brass);letter-spacing:.08em}
+.step h3{margin-bottom:9px;font-size:1.2rem}
+.step p{font-size:.96rem;color:var(--graphite);max-width:64ch}
+.step p + p{margin-top:10px}
+.step b{color:var(--ink);font-weight:600}
+.menupath{
+  display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;
+  font-family:var(--data);font-size:.78rem;background:var(--paper-2);
+  border:1px solid var(--rule);padding:7px 11px;margin:14px 0 4px
+}
+.menupath i{font-style:normal;color:var(--brass)}
+.why{margin-top:14px;padding-left:14px;border-left:2px solid var(--rule);font-size:.9rem;color:var(--graphite)}
+.why b{color:var(--ink)}
+@media(max-width:640px){.step{grid-template-columns:1fr;gap:8px}}
+
+/* signature: folder tree */
+.tree{background:var(--term);border:1px solid var(--term-rule);color:var(--term-ink);margin:18px 0 6px}
+.tree-bar{padding:11px 15px;border-bottom:1px solid var(--term-rule);font-family:var(--data);font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:#8A9AA3}
+.tree pre{margin:0;padding:18px 15px;font-family:var(--data);font-size:.82rem;line-height:2;overflow-x:auto}
+.tree .ok{color:#8FE0CE}
+.tree .no{color:#C97B66}
+.tree .dim{color:#5F707A}
+.tree .note{color:#C9A24B}
+
+/* copy row */
+.copyrow{display:flex;align-items:center;justify-content:space-between;gap:14px;border:1px solid var(--brass);background:rgba(242,169,75,.07);padding:14px 16px;margin:16px 0 4px;flex-wrap:wrap}
+.copyrow code{font-family:var(--data);font-size:.95rem;font-weight:600;word-break:break-all}
+.copyrow .k{font-family:var(--data);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--graphite);display:block;margin-bottom:4px}
+.copy{
+  background:transparent;border:1px solid var(--rule);color:var(--graphite);
+  font-family:var(--data);font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;
+  padding:8px 12px;cursor:pointer;transition:.15s;flex:none
+}
+.copy:hover{border-color:var(--brass);color:var(--brass)}
+.copy.done{color:var(--buy);border-color:var(--buy)}
+
+/* checklist */
+.tracker{border:1px solid var(--rule);background:var(--card)}
+.tracker-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px;background:var(--surface);color:var(--ink);border-bottom:1px solid var(--rule)}
+.tracker-bar .tag{color:#8B99B4}
+.tracker-count{font-family:var(--data);font-size:.78rem;font-weight:600;color:var(--brass-lift)}
+.meter{height:3px;background:var(--term-rule)}
+.meter i{display:block;height:100%;width:0;background:var(--brass-lift);transition:width .35s cubic-bezier(.3,.7,.3,1)}
+.check{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start;padding:18px 20px;border-bottom:1px solid var(--rule-soft);transition:background .2s}
+.check:last-child{border-bottom:0}
+.check.done{background:rgba(47,163,124,.10)}
+.check p{font-size:.95rem}
+.check.done p{color:var(--buy)}
+.tick{position:relative;width:24px;height:24px;flex:none;margin-top:1px}
+.tick input{position:absolute;opacity:0;width:100%;height:100%;margin:0;cursor:pointer}
+.tick span{position:absolute;inset:0;border:1px solid var(--rule);background:#080C16;display:grid;place-items:center;transition:.18s;pointer-events:none}
+.tick span::after{content:"";width:11px;height:5px;border-left:2px solid var(--paper);border-bottom:2px solid var(--paper);transform:rotate(-45deg) scale(.4);opacity:0;transition:.18s;margin-top:-3px}
+.tick input:checked + span{background:var(--buy);border-color:var(--buy)}
+.tick input:checked + span::after{opacity:1;transform:rotate(-45deg) scale(1)}
+.tick input:focus-visible + span{outline:2px solid var(--brass);outline-offset:3px}
+
+/* troubleshooting */
+details{border-bottom:1px solid var(--rule-soft)}
+summary{list-style:none;cursor:pointer;padding:20px 44px 20px 0;position:relative;font-family:var(--display);font-weight:600;font-size:1.05rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:8px;top:18px;font-family:var(--data);font-size:1.2rem;color:var(--brass);transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details .body{padding:0 0 22px;max-width:76ch}
+details .cause{font-family:var(--data);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sell);display:block;margin-bottom:8px}
+details p{color:var(--graphite);font-size:.94rem}
+
+/* risk + footer */
+.risk{border-top:1px solid var(--rule);background:var(--paper-2);padding:26px 0}
+.risk-in{display:grid;grid-template-columns:150px 1fr;gap:24px;align-items:start}
+.risk p{font-size:.86rem;color:#93A0B8;max-width:92ch}
+footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--data);font-size:.7rem;letter-spacing:.08em;color:var(--graphite)}
+.foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;text-transform:uppercase}
+.foot-in a{text-decoration:none}
+.foot-in a:hover{color:var(--brass)}
+@media(max-width:960px){.section{padding:58px 0}.risk-in{grid-template-columns:1fr;gap:10px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="ticker" aria-hidden="true">
+  <div class="wrap">
+    <span>PLATFORM <b>METATRADER 5 ONLY</b></span>
+    <span>FOLDER <b>MQL5 / EXPERTS</b></span>
+    <span>WEBREQUEST <b>REQUIRED FOR LICENSING</b></span>
+    <span>UPTIME <b>VPS RECOMMENDED</b></span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="/">
+      <img class="brand-mark" src="/assets/logo.png" alt="" style="border-radius:6px" onerror="this.style.display='none'">
+      <span><span class="brand-name">GOLDTRAP</span><span class="brand-sub">ABOI ORIGINAL</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/#cycle">How it trades</a>
+      <a href="/#features">Features</a>
+      <a href="/#proof">Live proof</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/how-to-register/">Free license</a>
+    </nav>
+    <a class="btn btn--brass btn--sm" href="https://t.me/aboi_original">Get the EA file</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="narrow">
+    <div class="crumb"><a href="/">GOLDTRAP</a> / Install guide</div>
+    <div class="tag tag--brass">MetaTrader 5 · six steps</div>
+    <h1>From Telegram file to a <em>running EA</em>, in order.</h1>
+    <p class="lede">Work down the list without skipping. Almost every failed install comes down to the same two things, so those two steps are marked and explained rather than left as one line in a list.</p>
+    <div class="hero-cta">
+      <a class="btn btn--brass" href="https://t.me/aboi_original">Request the EA on Telegram</a>
+      <a class="btn btn--ghost" href="#steps">Go to the steps</a>
+    </div>
+    <div class="warnbox">
+      <h3>The two things that break most installs</h3>
+      <p>The EA file ends up in the wrong terminal folder, or the WebRequest URL is never added so the licence check cannot reach the server. Steps 02 and 05 handle those. If the EA is not showing up or not activating, start there.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="narrow">
+    <div class="sec-head">
+      <div class="tag">Before you start</div>
+      <h2>Have these three ready.</h2>
+    </div>
+    <div class="pre">
+      <div><span class="n">01</span><p>MetaTrader 5 installed and logged in to your broker account.</p></div>
+      <div><span class="n">02</span><p>Your MT5 account number, with the licence already activated for it.</p></div>
+      <div><span class="n">03</span><p>The GOLDTRAP <b>.ex5</b> file sent to you on Telegram, saved somewhere you can find it again.</p></div>
+    </div>
+    <p class="fine" style="margin-top:16px">Licence not activated yet? <a href="/how-to-register/" style="color:var(--brass)">Claim a free licence</a> or <a href="/#pricing" style="color:var(--brass)">choose a paid one</a> first. Installing before activation just produces a licence error on the chart.</p>
+  </div>
+</section>
+
+<section class="section" id="steps">
+  <div class="narrow">
+    <div class="sec-head">
+      <div class="tag">Install steps</div>
+      <h2>Six steps, in this order.</h2>
+      <p class="lede">Each step ends where the next one begins. Do not jump ahead to attaching the EA before the licence URL is whitelisted.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div>
+          <h3>Save the EA file from Telegram</h3>
+          <p>The EA is sent to you directly on Telegram after your licence is activated — a single <b>.ex5</b> file, plus a preset file if your package includes one.</p>
+          <p>Save it somewhere you can reach easily, like Downloads or Desktop. On a phone, forward the file to yourself on the computer running MT5; you cannot install it from the phone.</p>
+          <p class="why">Use the file sent to you directly rather than a copy from elsewhere. Versions passed around outside the group are often older builds, and they may not match the licence bound to your account.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">02</div>
+        <div>
+          <h3>Open the data folder from inside MT5</h3>
+          <p>In MetaTrader 5, use the menu:</p>
+          <div class="menupath">File <i>▸</i> Open Data Folder</div>
+          <p class="why"><b>Do not navigate to the folder by hand.</b> If you have more than one MT5 terminal installed — a second broker, an old install, a portable copy — each one has its own data folder, and they look identical. Opening it from inside the running terminal is the only way to be certain the file lands where that terminal will read it. This is the single most common install failure.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">03</div>
+        <div>
+          <h3>Copy the EA into Experts</h3>
+          <p>Inside the data folder, go into <b>MQL5</b>, then <b>Experts</b>, and drop the .ex5 file there.</p>
+          <div class="tree">
+            <div class="tree-bar">Data folder / MQL5</div>
+<pre>MQL5/
+├── <span class="ok">Experts/     ← Goldtrap.ex5 goes here</span>
+├── <span class="note">Presets/     ← .set preset file, if provided</span>
+├── <span class="no">Indicators/  ✕ not here</span>
+├── <span class="no">Scripts/     ✕ not here</span>
+└── <span class="dim">Files/       ✕ not here</span></pre>
+          </div>
+          <p class="fine">An EA placed in Indicators or Scripts will never appear under Expert Advisors in Navigator, no matter how many times you refresh.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">04</div>
+        <div>
+          <h3>Refresh the Navigator panel</h3>
+          <p>Back in MT5, right-click <b>Expert Advisors</b> in the Navigator panel and choose <b>Refresh</b>. GOLDTRAP should appear in the list.</p>
+          <p>If it does not, close MetaTrader 5 completely and reopen it. Still missing? The file is in the wrong folder — go back to step 02.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">05</div>
+        <div>
+          <h3>Allow WebRequest for the licence URL</h3>
+          <p>The EA verifies its licence online every hour. Without this URL whitelisted, the check cannot leave your terminal and the EA stops trading.</p>
+          <div class="menupath">Tools <i>▸</i> Options <i>▸</i> Expert Advisors</div>
+          <p>Tick <b>Allow WebRequest for listed URL</b>, add the address below, then press OK.</p>
+          <div class="copyrow">
+            <span><span class="k">WebRequest URL</span><code>https://a689.link</code></span>
+            <button class="copy" data-copy="https://a689.link">Copy</button>
+          </div>
+          <p class="fine">Enter it exactly as shown — no trailing slash, no extra path.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-n">06</div>
+        <div>
+          <h3>Attach the EA to your chart</h3>
+          <p>Open an <b>XAUUSD</b> chart, then drag GOLDTRAP from Navigator onto it. In the settings window, allow algo trading and load the supplied preset if you have one.</p>
+          <p>Before you leave it running, confirm the symbol, lot size, preset, spread, account balance, and risk settings all match what you intended.</p>
+          <p class="why">A smiling face in the top right corner means the EA is live. A sad face means algo trading is off — check the <b>Algo Trading</b> button in the toolbar as well as the setting in the EA window.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="narrow">
+    <div class="sec-head">
+      <div class="tag">Final checks</div>
+      <h2>Confirm all five before you walk away.</h2>
+      <p class="lede">Nothing is submitted here — the list is just so you can see what is still outstanding.</p>
+    </div>
+    <div class="tracker">
+      <div>
+        <div class="tracker-bar">
+          <span class="tag">Ready to run</span>
+          <span class="tracker-count" id="count">0 of 5 confirmed</span>
+        </div>
+        <div class="meter"><i id="meter"></i></div>
+      </div>
+      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>GOLDTRAP appears under Navigator → Expert Advisors.</p></label>
+      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>Algo Trading is switched on in the MT5 toolbar.</p></label>
+      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>The WebRequest URL <b>https://a689.link</b> is listed under Tools → Options → Expert Advisors.</p></label>
+      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>The chart shows the EA name with no licence error message.</p></label>
+      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>Lot size and risk settings match your account size, not the defaults.</p></label>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="narrow">
+    <div class="sec-head">
+      <div class="tag">If something is wrong</div>
+      <h2>Symptom first, then the usual cause.</h2>
+    </div>
+
+    <details open>
+      <summary>The EA is not in the Navigator list</summary>
+      <div class="body">
+        <span class="cause">Usual cause — wrong folder</span>
+        <p>The file went into a different terminal's data folder, or into Indicators instead of Experts. Open the data folder again through File → Open Data Folder in the terminal you actually want to run it on, and check that the .ex5 sits inside MQL5 → Experts. Then refresh Navigator.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>A licence error appears on the chart</summary>
+      <div class="body">
+        <span class="cause">Usual cause — URL missing, or account not bound</span>
+        <p>First confirm the WebRequest URL is listed exactly as https://a689.link. If it is there and the error stays, the licence is probably not bound to that MT5 account number yet — send your account number and registered email on Telegram so it can be checked.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>The EA loads but never opens an order</summary>
+      <div class="body">
+        <span class="cause">Usual cause — wrong symbol, or a pause is active</span>
+        <p>Check the chart is XAUUSD on your broker's exact symbol name — some brokers use a suffix. If the symbol is right, the EA may be sitting out a rollover window or a high-impact news pause, which is normal behaviour rather than a fault.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>It was running, then stopped mid-session</summary>
+      <div class="body">
+        <span class="cause">Usual cause — licence recheck failed</span>
+        <p>The licence is verified every hour. If it expires, is revoked, or the recheck cannot reach the server, pending orders are removed and no new trades open. Confirm the WebRequest URL is still listed and your internet connection is stable.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Trades were left unmanaged overnight</summary>
+      <div class="body">
+        <span class="cause">Usual cause — terminal was closed</span>
+        <p>The EA can only manage a basket while MetaTrader is running. Closing the terminal or letting the machine sleep leaves open positions with no grid management and no basket exit. Run it on a Windows VPS if you cannot keep the terminal on.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section class="section">
+  <div class="narrow" style="display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:center">
+    <div>
+      <div class="tag tag--brass" style="margin-bottom:12px">Still stuck</div>
+      <h2 style="margin-bottom:12px">Send two things and it can be checked.</h2>
+      <p class="lede">Your registered email address and your MT5 account number. With those, the licence status can be looked up directly instead of guessing from a screenshot.</p>
+    </div>
+    <a class="btn btn--brass" href="https://t.me/aboi_original">Message Telegram</a>
+  </div>
+</section>
+</main>
+
+<div class="risk">
+  <div class="wrap risk-in">
+    <div class="tag">Risk disclosure</div>
+    <p>A correct install is not a safe trade. Trading leveraged gold can result in the loss of your deposit, and grid recovery increases exposure while a position is in drawdown, so floating loss is a normal part of how this EA operates. Test the setup on a demo account first, size your lots to your equity, and only trade capital you can afford to lose. GOLDTRAP EA is not a profit guarantee.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 Aboi Original — GOLDTRAP EA</span>
+    <span>
+      <a href="/">Home</a> ·
+      <a href="/how-to-register/">Free licence</a> ·
+      <a href="https://t.me/aboi_original">Telegram</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('click', function(e){
+  var b = e.target.closest('.copy');
+  if (!b) return;
+  navigator.clipboard.writeText(b.dataset.copy).then(function(){
+    var t = b.textContent; b.textContent = 'Copied'; b.classList.add('done');
+    setTimeout(function(){ b.textContent = t; b.classList.remove('done'); }, 1400);
+  });
+});
+
+(function(){
+  var boxes = document.querySelectorAll('.check input'),
+      meter = document.getElementById('meter'),
+      count = document.getElementById('count');
+  function progress(){
+    var done = 0;
+    boxes.forEach(function(b){
+      var row = b.closest('.check');
+      if (b.checked){ done++; row.classList.add('done'); }
+      else { row.classList.remove('done'); }
+    });
+    meter.style.width = (done / boxes.length * 100) + '%';
+    count.textContent = done + ' of ' + boxes.length + ' confirmed';
+  }
+  boxes.forEach(function(b){ b.addEventListener('change', progress); });
+  progress();
+})();
+</script>
+</body>
+</html>

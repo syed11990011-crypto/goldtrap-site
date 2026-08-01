@@ -145,6 +145,12 @@ header{position:sticky;top:0;z-index:50;background:rgba(5,7,14,.82);backdrop-fil
 .dl-meta{display:flex;flex-wrap:wrap;gap:8px;margin:auto 0 22px;position:relative}
 .dl-meta span{font-family:var(--data);font-size:.72rem;color:var(--muted);border:1px solid var(--line-soft);border-radius:999px;padding:7px 9px;background:rgba(5,7,14,.44)}
 .download-card .btn{width:100%;position:relative}
+.setup-note{margin-top:22px;border:1px solid rgba(242,169,75,.28);background:linear-gradient(180deg,rgba(217,131,36,.08),rgba(5,7,14,.56));border-radius:8px;padding:28px 30px}
+.setup-note h3{font-size:1rem;color:#E8C96E;margin:0 0 16px}
+.setup-note p{color:var(--muted);line-height:1.7;margin:0 0 16px}
+.setup-note .addr{display:inline-flex;min-width:min(390px,100%);margin:4px 0 18px;border-color:rgba(242,169,75,.32);background:rgba(217,131,36,.08)}
+.setup-note .addr code{font-size:1.05rem;color:#F0D37C}
+.setup-note .fine{font-size:.9rem;color:#9AA3B5}
 @media(max-width:860px){.downloads{grid-template-columns:1fr}.download-card{min-height:auto}}
 
 /* pricing */
@@ -327,6 +333,12 @@ footer a:hover{color:var(--text)}
         <div class="dl-meta"><span>.ex5</span><span>Version 4.2.3</span><span>96 KB</span></div>
         <a class="btn btn--amber" href="/downloads/GoldTrap_v4_2_3.ex5" download>Download MT5 file</a>
       </div>
+    </div>
+    <div class="setup-note">
+      <h3>Setup note — required once per terminal</h3>
+      <p>The EA verifies your licence online. Add this URL to your MetaTrader whitelist:</p>
+      <div class="addr"><code>https://a689.link</code><button class="copy" data-copy="https://a689.link">Copy</button></div>
+      <p class="fine">MT5/MT4 → Tools → Options → Expert Advisors → tick "Allow WebRequest for listed URL" → add the domain → OK.</p>
     </div>
   </div>
 </section>

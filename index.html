@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GOLDTRAP EA — automated XAUUSD trading for MT5 | Aboi Original</title>
+<meta name="description" content="MT5 expert advisor for XAUUSD. BuyStop and SellStop around price, adaptive grid recovery, single basket take profit, equity kill-switch, lifetime licences.">
+<meta name="theme-color" content="#05070E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* pulled from the logo */
+  --bg:#05070E;
+  --surface:#0A0F1E;
+  --surface-2:#101829;
+  --line:#1C2740;
+  --line-soft:#151E33;
+  --text:#EAEEF7;
+  --muted:#8B99B4;
+  --blue:#1E5BE6;
+  --blue-bright:#3B8CFF;
+  --blue-deep:#0B2A80;
+  --amber:#D98324;
+  --amber-soft:#F2A94B;
+  --green:#2FA37C;
+  --red:#D9584A;
+
+  --display:"Archivo",system-ui,sans-serif;
+  --body:"Inter",system-ui,sans-serif;
+  --data:"JetBrains Mono",ui-monospace,monospace;
+  --wrap:1160px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+section{padding:96px 0;position:relative}
+
+h1,h2,h3{font-family:var(--display);font-weight:800;margin:0;letter-spacing:-.03em;line-height:1.05}
+h1{font-size:clamp(2.4rem,5.2vw,4rem)}
+h2{font-size:clamp(1.9rem,3.4vw,2.8rem)}
+h3{font-size:1.12rem;font-weight:700;letter-spacing:-.01em;line-height:1.3}
+p{margin:0}
+.lede{font-size:1.08rem;color:var(--muted);max-width:60ch}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--data);font-size:.7rem;
+  font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-bright);
+  border:1px solid var(--line);background:var(--surface);padding:7px 13px;border-radius:100px;
+}
+.eyebrow i{width:6px;height:6px;border-radius:50%;background:var(--blue-bright);font-style:normal}
+.sec-head{max-width:62ch;margin-bottom:52px}
+.sec-head h2{margin:16px 0 14px}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:var(--body);font-size:.95rem;font-weight:600;text-decoration:none;
+  padding:14px 24px;border-radius:10px;cursor:pointer;border:1px solid transparent;
+  background:var(--blue);color:#fff;transition:transform .15s,background .15s,border-color .15s;
+}
+.btn:hover{transform:translateY(-2px);background:#2A68F0}
+.btn--amber{background:var(--amber);color:#1A0E02}
+.btn--amber:hover{background:var(--amber-soft)}
+.btn--ghost{background:transparent;color:var(--text);border-color:var(--line)}
+.btn--ghost:hover{background:var(--surface-2);border-color:#2A3A5C}
+.btn--sm{padding:10px 16px;font-size:.88rem}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--blue-bright);outline-offset:3px}
+
+header{position:sticky;top:0;z-index:50;background:rgba(5,7,14,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line-soft)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1.1rem;letter-spacing:-.02em}
+.brand img{width:32px;height:32px;border-radius:7px;display:block}
+.navlinks{display:flex;gap:28px}
+.navlinks a{text-decoration:none;color:var(--muted);font-size:.92rem;font-weight:500}
+.navlinks a:hover{color:var(--text)}
+@media(max-width:900px){.navlinks{display:none}}
+
+.hero{padding:84px 0 76px;text-align:center;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;top:-320px;left:50%;transform:translateX(-50%);
+  width:900px;height:640px;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(30,91,230,.28),transparent 70%);
+}
+.hero > .wrap{position:relative}
+.hero h1{margin:24px auto 20px;max-width:16ch}
+.hero h1 span{background:linear-gradient(100deg,var(--amber-soft),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lede{margin:0 auto;max-width:58ch}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:34px 0 46px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:860px;margin:0 auto}
+.stat{border:1px solid var(--line);background:var(--surface);border-radius:12px;padding:18px 14px}
+.stat dt{font-family:var(--data);font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+.stat dd{margin:0;font-family:var(--display);font-weight:700;font-size:1.06rem}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* how it works */
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:24px 22px;transition:border-color .18s,transform .18s}
+.card:hover{border-color:#2A3A5C;transform:translateY(-3px)}
+.card .num{font-family:var(--data);font-size:.72rem;font-weight:600;color:var(--blue-bright);letter-spacing:.1em;display:block;margin-bottom:16px}
+.card h3{margin-bottom:9px}
+.card p{font-size:.93rem;color:var(--muted)}
+@media(max-width:980px){.flow{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.flow{grid-template-columns:1fr}}
+
+/* features */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feat{border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:24px 22px}
+.feat .ic{width:38px;height:38px;border-radius:9px;background:rgba(30,91,230,.14);border:1px solid rgba(59,140,255,.3);display:grid;place-items:center;margin-bottom:16px}
+.feat.amber .ic{background:rgba(217,131,36,.14);border-color:rgba(242,169,75,.32)}
+.feat h3{margin-bottom:8px}
+.feat p{font-size:.93rem;color:var(--muted)}
+@media(max-width:980px){.feats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.feats{grid-template-columns:1fr}}
+
+/* proof */
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.cred{border:1px solid var(--line);background:var(--surface);border-radius:14px;overflow:hidden}
+.cred-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line-soft);flex-wrap:wrap}
+.cred-row:last-child{border-bottom:0}
+.cred-k{font-family:var(--data);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.cred-v{font-family:var(--data);font-size:.92rem;display:flex;align-items:center;gap:12px;word-break:break-all}
+.copy{background:transparent;border:1px solid var(--line);color:var(--muted);font-family:var(--data);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;padding:6px 11px;border-radius:7px;cursor:pointer;transition:.15s;flex:none}
+.copy:hover{border-color:var(--blue-bright);color:var(--blue-bright)}
+.copy.done{color:var(--green);border-color:var(--green)}
+.note{display:flex;gap:12px;margin-top:22px;padding:16px 18px;border:1px solid rgba(242,169,75,.28);background:rgba(217,131,36,.08);border-radius:12px}
+.note p{font-size:.9rem;color:#D6C4A8}
+@media(max-width:860px){.proof{grid-template-columns:1fr;gap:32px}}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.plan{border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;height:100%}
+.plan--feat{border-color:rgba(242,169,75,.45);background:linear-gradient(180deg,rgba(217,131,36,.09),transparent 42%),var(--surface);position:relative}
+.badge{position:absolute;top:-11px;left:24px;background:var(--amber);color:#1A0E02;font-family:var(--data);font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:5px 11px;border-radius:100px}
+.plan h3{font-size:1.15rem}
+.plan .sub{font-size:.88rem;color:var(--muted);margin-top:4px}
+.amount{font-family:var(--display);font-weight:800;font-size:2.9rem;letter-spacing:-.04em;line-height:1;margin:22px 0 6px}
+.amount small{display:block;font-family:var(--data);font-size:.64rem;font-weight:400;letter-spacing:.1em;color:var(--muted);margin-top:10px;line-height:1.6}
+.plan ul{list-style:none;padding:0;margin:20px 0 24px;display:flex;flex-direction:column;gap:11px}
+.plan li{display:flex;gap:10px;font-size:.92rem;color:#C3CCDD;line-height:1.5}
+.plan li svg{flex:none;margin-top:5px}
+.plan .btn{width:100%;margin-top:auto}
+.plan .fine{margin-bottom:18px}
+.fine{font-family:var(--data);font-size:.66rem;line-height:1.7;color:var(--muted)}
+@media(max-width:900px){.plans{grid-template-columns:1fr}}
+
+/* modal */
+.overlay{position:fixed;inset:0;z-index:100;display:none;background:rgba(3,5,10,.78);backdrop-filter:blur(4px);padding:24px;overflow-y:auto}
+.overlay.open{display:grid;place-items:center}
+.modal{width:min(540px,100%);background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.modal-head{display:flex;justify-content:space-between;gap:16px;padding:24px;border-bottom:1px solid var(--line-soft)}
+.modal-head h3{font-size:1.3rem;margin-top:6px}
+.modal-close{background:transparent;border:1px solid var(--line);color:var(--muted);width:34px;height:34px;flex:none;border-radius:9px;cursor:pointer;font-size:1rem}
+.modal-close:hover{border-color:var(--blue-bright);color:var(--blue-bright)}
+.pay{padding:22px 24px;border-bottom:1px solid var(--line-soft)}
+.pay-top{display:flex;justify-content:space-between;gap:12px;align-items:baseline;margin-bottom:6px}
+.pay-top h4{margin:0;font-family:var(--display);font-size:1rem;font-weight:700}
+.pay-total{font-family:var(--data);font-size:.92rem;font-weight:600;color:var(--amber-soft)}
+.pay p{font-size:.88rem;color:var(--muted);margin-bottom:16px}
+.addr{display:flex;align-items:center;justify-content:space-between;gap:12px;border:1px solid var(--line);background:var(--bg);border-radius:10px;padding:12px 13px;margin-bottom:14px;flex-wrap:wrap}
+.addr code{font-family:var(--data);font-size:.74rem;word-break:break-all}
+.pay .btn{width:100%}
+.modal-foot{padding:18px 24px 24px}
+
+/* faq */
+details{border:1px solid var(--line);background:var(--surface);border-radius:12px;margin-bottom:10px}
+summary{list-style:none;cursor:pointer;padding:19px 52px 19px 22px;position:relative;font-family:var(--display);font-weight:700;font-size:1.02rem;letter-spacing:-.01em}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:20px;top:16px;font-family:var(--data);color:var(--blue-bright);font-size:1.2rem;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 22px 20px;color:var(--muted);font-size:.94rem;max-width:74ch}
+
+/* cta + footer */
+.cta{border:1px solid var(--line);border-radius:20px;background:linear-gradient(140deg,rgba(30,91,230,.16),rgba(217,131,36,.08)),var(--surface);padding:52px 44px;text-align:center}
+.cta h2{margin-bottom:14px}
+.cta .lede{margin:0 auto 28px}
+.cta .hero-cta{margin:0}
+.risk{border-top:1px solid var(--line-soft);background:var(--surface);padding:30px 0}
+.risk p{font-size:.86rem;color:#93A0B8;max-width:92ch;margin-top:10px}
+footer{border-top:1px solid var(--line-soft);padding:30px 0 46px;font-size:.85rem;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{text-decoration:none}
+footer a:hover{color:var(--text)}
+@media(max-width:900px){section{padding:68px 0}.cta{padding:38px 24px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top">
+      <!-- TODO: letak fail logo sebenar di assets/logo.png -->
+      <img src="assets/logo.png" alt="" onerror="this.style.display='none'">
+      GOLDTRAP
+    </a>
+    <nav class="navlinks">
+      <a href="#how">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#proof">Live proof</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn--amber btn--sm" href="#pricing">Get access</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow"><i></i>MT5 · XAUUSD · Lifetime licence</span>
+    <h1>Trade gold with <span>structure</span>, not predictions.</h1>
+    <p class="lede">GOLDTRAP brackets the market with a BuyStop above and a SellStop below. Whichever side fills is kept, the other is cancelled, and the live side is managed with adaptive grid recovery to a single basket exit.</p>
+    <div class="hero-cta">
+      <a class="btn btn--amber" href="#pricing">Get access</a>
+      <a class="btn btn--ghost" href="#proof">Open the live account</a>
+    </div>
+    <dl class="stats">
+      <div class="stat"><dt>Platform</dt><dd>MetaTrader 5</dd></div>
+      <div class="stat"><dt>Symbol</dt><dd>XAUUSD</dd></div>
+      <div class="stat"><dt>Min equity</dt><dd>$200 USD</dd></div>
+      <div class="stat"><dt>Licence</dt><dd>Lifetime</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><i></i>How it works</span>
+      <h2>One repeating cycle.</h2>
+      <p class="lede">No forecasting, no signals to interpret. The EA runs the same four movements, then starts again.</p>
+    </div>
+    <div class="flow">
+      <div class="card"><span class="num">01</span><h3>Bracket the price</h3><p>While flat, a BuyStop is placed above the market and a SellStop below it, ready for a break either way.</p></div>
+      <div class="card"><span class="num">02</span><h3>Keep the filled side</h3><p>The moment one triggers, the opposite pending order is cancelled. Both sides never run at once.</p></div>
+      <div class="card"><span class="num">03</span><h3>Recover with a grid</h3><p>If price turns against the open side, positions are added at adaptive spacing, pulling basket breakeven closer.</p></div>
+      <div class="card"><span class="num">04</span><h3>Exit as one basket</h3><p>Take profit is recalculated as the grid grows. When hit, every position on that side closes together.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><i></i>Built in</span>
+      <h2>Control over the parts that hurt.</h2>
+      <p class="lede">Grid systems fail in predictable ways. These are the limits that sit around it.</p>
+    </div>
+    <div class="feats">
+      <div class="feat amber"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5 15.5 4v5c0 4-2.8 6.6-6.5 7.5C5.3 15.6 2.5 13 2.5 9V4L9 1.5Z" stroke="#F2A94B" stroke-width="1.4" stroke-linejoin="round"/></svg></div><h3>Equity kill-switch</h3><p>If equity drawdown breaches your threshold, managed positions are closed and pending orders removed.</p></div>
+      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#3B8CFF" stroke-width="1.4"/><path d="M9 5v4l2.5 2" stroke="#3B8CFF" stroke-width="1.4" stroke-linecap="round"/></svg></div><h3>Rollover pause</h3><p>Pending orders are pulled through the broker rollover window so a spread spike cannot fake a breakout.</p></div>
+      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2.5 12.5 6.5 7l3.5 3 5-6.5" stroke="#3B8CFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>News filter</h3><p>Optional pause on new entries before and after high-impact releases.</p></div>
+      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2.5" y="2.5" width="13" height="13" rx="2" stroke="#3B8CFF" stroke-width="1.4"/><path d="M6 9h6" stroke="#3B8CFF" stroke-width="1.4" stroke-linecap="round"/></svg></div><h3>Max open hours</h3><p>Optional time-based exit closes a side that has stayed open past your configured limit.</p></div>
+      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3.5" y="8" width="11" height="7" rx="1.6" stroke="#3B8CFF" stroke-width="1.4"/><path d="M6 8V5.5a3 3 0 0 1 6 0V8" stroke="#3B8CFF" stroke-width="1.4"/></svg></div><h3>Account-bound licence</h3><p>Keys are tied to MT5 account numbers on the server and verified every hour while running.</p></div>
+      <div class="feat amber"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 14V7M7.5 14V3M12 14v-5M16 14V5" stroke="#F2A94B" stroke-width="1.4" stroke-linecap="round"/></svg></div><h3>Adaptive spacing</h3><p>Grid distance and lot multiplier are tuned to XAUUSD volatility rather than fixed pip steps.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap proof">
+    <div>
+      <span class="eyebrow"><i></i>Live proof</span>
+      <h2 style="margin:16px 0 14px">Read the account before you pay.</h2>
+      <p class="lede">View-only investor credentials. Log in with MT5 and inspect the trade history, open positions, and drawdown yourself — none of this is a screenshot.</p>
+      <div class="note">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" style="flex:none;margin-top:3px"><circle cx="9" cy="9" r="7.5" stroke="#F2A94B" stroke-width="1.3"/><path d="M9 5v5M9 12.3v.7" stroke="#F2A94B" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <p>Look at the drawdown stretches, not only the closed profit. Grid recovery means floating loss is part of normal operation.</p>
+      </div>
+    </div>
+    <div class="cred">
+      <div class="cred-row"><span class="cred-k">Login</span><span class="cred-v">600001279 <button class="copy" data-copy="600001279">Copy</button></span></div>
+      <div class="cred-row"><span class="cred-k">Investor password</span><span class="cred-v">sJ8&amp;JbsSRp <button class="copy" data-copy="sJ8&JbsSRp">Copy</button></span></div>
+      <div class="cred-row"><span class="cred-k">Server</span><span class="cred-v">VantageMarkets-Live <button class="copy" data-copy="VantageMarkets-Live">Copy</button></span></div>
+      <div class="cred-row"><span class="cred-k">Access</span><span class="cred-v" style="color:var(--green)">View only — no trading rights</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><i></i>Pricing</span>
+      <h2>Three ways in. All lifetime.</h2>
+      <p class="lede">Every licence is bound to your MT5 account numbers and activated by hand after verification.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <p class="sub">One MT5 account</p>
+        <div class="amount">$0<small>Requires registering through the IB link</small></div>
+        <ul>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#3B8CFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Register with Vantage or VT Markets</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#3B8CFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Complete KYC, open an MT5 cent account</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#3B8CFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Send your account number on Telegram</li>
+        </ul>
+        <a class="btn btn--ghost" href="/how-to-register/">Claim free licence</a>
+      </div>
+
+      <div class="plan plan--feat">
+        <span class="badge">Best value</span>
+        <h3>5 accounts</h3>
+        <p class="sub">For running several accounts</p>
+        <div class="amount">$299<small>USDT (TRC20) · one-time</small></div>
+        <ul>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#F2A94B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Activate up to 5 MT5 accounts</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#F2A94B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Use any MT5 broker you prefer</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#F2A94B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>All future EA updates included</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#F2A94B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority Telegram support</li>
+        </ul>
+        <p class="fine">One-time payment in USDT (TRC20). Activated after verification.</p>
+        <button class="btn btn--amber js-buy" data-plan="Lifetime — 5 accounts" data-amount="299">Choose payment</button>
+      </div>
+
+      <div class="plan">
+        <h3>Unlimited</h3>
+        <p class="sub">No account limit</p>
+        <div class="amount">$499<small>USDT (TRC20) · one-time</small></div>
+        <ul>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#3B8CFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited MT5 accounts</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#3B8CFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Use any MT5 broker you prefer</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#3B8CFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Free upgrades to all versions</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#3B8CFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority replies on Telegram</li>
+        </ul>
+        <p class="fine">One-time payment in USDT (TRC20). Activated after verification.</p>
+        <button class="btn js-buy" data-plan="Lifetime — unlimited accounts" data-amount="499">Choose payment</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap" style="max-width:860px">
+    <div class="sec-head">
+      <span class="eyebrow"><i></i>FAQ</span>
+      <h2>Before you activate.</h2>
+    </div>
+    <details open><summary>Which pair is it built for?</summary><p>XAUUSD on MetaTrader 5 only. A recommended preset ships with the EA, tuned around gold's volatility and spread behaviour.</p></details>
+    <details><summary>What equity is recommended?</summary><p>The minimum to start is $200 USD, equal to 20,000 USC on a cent account. 50,000 USC or more is recommended, because a larger buffer gives grid recovery room during volatile movement.</p></details>
+    <details><summary>Does this guarantee profit?</summary><p>No. It is an automated trading tool, not a return. Market conditions, account size, lot settings, spread, and your own risk control still decide the outcome.</p></details>
+    <details><summary>Can I use any broker?</summary><p>Paid licences work with any MT5 broker. The free licence only covers accounts opened through the IB link with Vantage or VT Markets.</p></details>
+    <details><summary>How do I get the EA file?</summary><p>It is sent to you directly on Telegram once your licence is activated, along with the preset file and setup help.</p></details>
+    <details><summary>What if the licence expires mid-session?</summary><p>The EA rechecks the licence every hour. If it is revoked or expired, pending orders are removed and no new trades open.</p></details>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta">
+      <h2>Read the group before you pay for anything.</h2>
+      <p class="lede">Telegram carries the update notes, setup questions, and unedited user feedback. Look through it first, then pick the licence that matches your setup.</p>
+      <div class="hero-cta">
+        <a class="btn btn--amber" href="https://t.me/+oevN5R3SpuUzZjJl">Join the Telegram group</a>
+        <a class="btn btn--ghost" href="https://t.me/aboi_original">Message @aboi_original</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="overlay" id="buyOverlay" role="dialog" aria-modal="true" aria-labelledby="buyTitle" hidden>
+  <div class="modal" id="buyModal">
+    <div class="modal-head">
+      <div><span class="eyebrow"><i></i>Activate GOLDTRAP</span><h3 id="buyTitle">Lifetime — 5 accounts</h3></div>
+      <button class="modal-close" id="buyClose" aria-label="Close">✕</button>
+    </div>
+    <div class="pay">
+      <div class="pay-top"><h4>Pay with USDT</h4><span class="pay-total" id="usdtTotal">299 USDT</span></div>
+      <p>TRC20 network only. Send the exact amount to the address below.</p>
+      <div class="addr"><code>TJyYsW8ugVbXSGu3r9CB4HZFoJyizvCArE</code><button class="copy" data-copy="TJyYsW8ugVbXSGu3r9CB4HZFoJyizvCArE">Copy</button></div>
+      <a class="btn btn--amber" href="https://t.me/aboi_original">Send proof on Telegram</a>
+    </div>
+    <div class="modal-foot"><p class="fine">After payment, message @aboi_original with your MT5 account number and proof of payment. Licences are activated manually after verification. All sales are final.</p></div>
+  </div>
+</div>
+
+<div class="risk">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--muted)"><i style="background:var(--muted)"></i>Risk disclosure</span>
+    <p>Trading leveraged gold carries substantial risk and can result in the loss of your deposit. Grid recovery increases exposure while a position is in drawdown, so floating loss is a normal part of how this EA operates and a large adverse move can exceed the equity buffer. Past results, including the live account shown above, do not predict future results. Only trade capital you can afford to lose. All sales are final — no refunds after purchase.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>© 2026 Aboi Original — GOLDTRAP EA</span>
+    <span><a href="/how-to-install/">Install guide</a> · <a href="/how-to-register/">Free licence</a> · <a href="https://t.me/aboi_original">Telegram</a></span>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('click', function(e){
+  var b = e.target.closest('.copy');
+  if (!b) return;
+  navigator.clipboard.writeText(b.dataset.copy).then(function(){
+    var t = b.textContent; b.textContent = 'Copied'; b.classList.add('done');
+    setTimeout(function(){ b.textContent = t; b.classList.remove('done'); }, 1400);
+  });
+});
+
+(function(){
+  var overlay = document.getElementById('buyOverlay'),
+      modal = document.getElementById('buyModal'),
+      closeB = document.getElementById('buyClose'),
+      title = document.getElementById('buyTitle'),
+      ut = document.getElementById('usdtTotal'),
+      last = null;
+  function open(btn){
+    title.textContent = btn.dataset.plan;
+    ut.textContent = btn.dataset.amount + ' USDT';
+    last = btn; overlay.hidden = false; overlay.classList.add('open');
+    document.body.style.overflow = 'hidden'; closeB.focus();
+  }
+  function close(){
+    overlay.classList.remove('open'); overlay.hidden = true;
+    document.body.style.overflow = ''; if (last) last.focus();
+  }
+  document.querySelectorAll('.js-buy').forEach(function(b){ b.addEventListener('click', function(){ open(b); }); });
+  closeB.addEventListener('click', close);
+  overlay.addEventListener('mousedown', function(e){ if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !overlay.hidden) close();
+    if (e.key === 'Tab' && !overlay.hidden){
+      var f = modal.querySelectorAll('button, a[href]'), first = f[0], lastEl = f[f.length-1];
+      if (e.shiftKey && document.activeElement === first){ e.preventDefault(); lastEl.focus(); }
+      else if (!e.shiftKey && document.activeElement === lastEl){ e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>

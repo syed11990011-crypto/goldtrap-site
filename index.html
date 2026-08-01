@@ -129,6 +129,24 @@ header{position:sticky;top:0;z-index:50;background:rgba(5,7,14,.82);backdrop-fil
 .note p{font-size:.9rem;color:#D6C4A8}
 @media(max-width:860px){.proof{grid-template-columns:1fr;gap:32px}}
 
+/* downloads */
+.downloads{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.download-card{
+  border:1px solid var(--line);background:linear-gradient(180deg,rgba(16,24,41,.92),rgba(10,15,30,.92));
+  padding:26px;border-radius:8px;position:relative;overflow:hidden;min-height:280px;display:flex;flex-direction:column
+}
+.download-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 88% 8%,rgba(59,140,255,.16),transparent 32%);pointer-events:none}
+.download-card.amber:before{background:radial-gradient(circle at 88% 8%,rgba(242,169,75,.18),transparent 32%)}
+.dl-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;position:relative}
+.platform{display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:8px;border:1px solid var(--line);background:rgba(5,7,14,.62);font-family:var(--data);font-weight:800;color:var(--blue-bright);font-size:1.05rem;flex:none}
+.download-card.amber .platform{color:var(--amber-soft)}
+.download-card h3{font-size:1.55rem;margin:22px 0 8px;position:relative}
+.download-card p{color:var(--muted);line-height:1.75;margin:0 0 20px;position:relative}
+.dl-meta{display:flex;flex-wrap:wrap;gap:8px;margin:auto 0 22px;position:relative}
+.dl-meta span{font-family:var(--data);font-size:.72rem;color:var(--muted);border:1px solid var(--line-soft);border-radius:999px;padding:7px 9px;background:rgba(5,7,14,.44)}
+.download-card .btn{width:100%;position:relative}
+@media(max-width:860px){.downloads{grid-template-columns:1fr}.download-card{min-height:auto}}
+
 /* pricing */
 .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
 .plan{border:1px solid var(--line);background:var(--surface);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;height:100%}
@@ -200,6 +218,7 @@ footer a:hover{color:var(--text)}
       <a href="#how">How it works</a>
       <a href="#features">Features</a>
       <a href="#proof">Live proof</a>
+      <a href="#download">Download</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
@@ -276,6 +295,38 @@ footer a:hover{color:var(--text)}
       <div class="cred-row"><span class="cred-k">Investor password</span><span class="cred-v">sJ8&amp;JbsSRp <button class="copy" data-copy="sJ8&JbsSRp">Copy</button></span></div>
       <div class="cred-row"><span class="cred-k">Server</span><span class="cred-v">VantageMarkets-Live <button class="copy" data-copy="VantageMarkets-Live">Copy</button></span></div>
       <div class="cred-row"><span class="cred-k">Access</span><span class="cred-v" style="color:var(--green)">View only — no trading rights</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="download">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><i></i>Download</span>
+      <h2>Choose the file for your terminal.</h2>
+      <p class="lede">Download the EA build that matches your MetaTrader platform. After downloading, follow the install guide and message Telegram if your licence is not active yet.</p>
+    </div>
+    <div class="downloads">
+      <div class="download-card">
+        <div class="dl-top">
+          <span class="eyebrow"><i></i>MetaTrader 4</span>
+          <span class="platform">MT4</span>
+        </div>
+        <h3>GoldTrap v4.2.3 EX4</h3>
+        <p>Use this file only for MetaTrader 4. Copy it into the MT4 Experts folder, restart the terminal, then attach it from Navigator.</p>
+        <div class="dl-meta"><span>.ex4</span><span>Version 4.2.3</span><span>90 KB</span></div>
+        <a class="btn btn--ghost" href="/downloads/GoldTrap_v4_2_3.ex4" download>Download MT4 file</a>
+      </div>
+      <div class="download-card amber">
+        <div class="dl-top">
+          <span class="eyebrow"><i></i>MetaTrader 5</span>
+          <span class="platform">MT5</span>
+        </div>
+        <h3>GoldTrap v4.2.3 EX5</h3>
+        <p>Use this file for MetaTrader 5. Copy it into MQL5/Experts, refresh Navigator, whitelist the licence URL, then attach it to XAUUSD.</p>
+        <div class="dl-meta"><span>.ex5</span><span>Version 4.2.3</span><span>96 KB</span></div>
+        <a class="btn btn--amber" href="/downloads/GoldTrap_v4_2_3.ex5" download>Download MT5 file</a>
+      </div>
     </div>
   </div>
 </section>

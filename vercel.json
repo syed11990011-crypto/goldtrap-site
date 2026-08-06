@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "fb.eagoldcrack.com"
+        }
+      ],
+      "destination": "/fb/:path*"
+    }
+  ]
+}

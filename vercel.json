@@ -1,6 +1,20 @@
 {
   "routes": [
     {
+      "src": "/downloads/?",
+      "status": 302,
+      "headers": {
+        "Location": "/downloads/GOLD_CRACK_EA.ex5"
+      }
+    },
+    {
+      "src": "/downloads/(.+\\.ex5)",
+      "headers": {
+        "Content-Disposition": "attachment"
+      },
+      "continue": true
+    },
+    {
       "src": "/.*",
       "has": [
         {

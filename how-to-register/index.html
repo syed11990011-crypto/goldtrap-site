@@ -163,6 +163,20 @@ details[open]{border-color:rgba(245,165,36,.45)}
 .eyebrow i{background:var(--amber)}
 a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{outline-color:var(--amber-soft)}
 .btn--amber{box-shadow:0 8px 28px -8px rgba(245,165,36,.65)}
+
+/* register push */
+html{scroll-padding-top:84px}
+.hero-cta{display:flex;justify-content:center;margin:28px 0 0}
+.btn--lg{padding:17px 30px;font-size:1.02rem}
+.broker .opt{font-weight:600}
+.broker[data-broker="Vantage"] .opt{color:var(--amber-soft)}
+.stickybar{display:none}
+@media(max-width:760px){
+  .stickybar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 16px;border-radius:14px;border:1px solid rgba(245,165,36,.55);background:rgba(10,15,30,.95);backdrop-filter:blur(10px);box-shadow:0 12px 40px -10px rgba(0,0,0,.7);font-size:.92rem;transform:translateY(140%);transition:transform .25s}
+  .stickybar.show{transform:none}
+  .stickybar b{color:#FFD27A}
+  footer{padding-bottom:96px}
+}
 </style>
 </head>
 <body>
@@ -188,7 +202,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
   <div class="wrap">
     <span class="eyebrow"><i></i>Free licence · 1 MT5 account</span>
     <h1>Get Gold Crack EA <span>free</span> for life in four steps.</h1>
-    <p class="lede">No payment needed. The free licence is funded by broker rebates, so it works on one MT5 account opened through our IB link with Vantage or VT Markets. Follow the steps in order.</p>
+    <p class="lede">No payment needed. Open one MT5 account through our link with Vantage or VT Markets and Gold Crack EA is yours for life. Broker rebates cover the cost of your licence.</p>
+    <div class="hero-cta"><a class="btn btn--amber btn--lg" href="#broker">Register free now</a></div>
     <p class="demo-note"><b>New</b> Once registered, you can test the EA on a demo account first</p>
     <dl class="stats">
       <div class="stat"><dt>Cost</dt><dd>$0 — lifetime</dd></div>
@@ -203,7 +218,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
     <div class="sec-head">
       <span class="eyebrow"><i></i>The process</span>
       <h2>Four steps. Nothing to pay.</h2>
-      <p class="lede">Nothing is submitted on this page. Activation happens by hand on Telegram once your account can be matched against the IB list.</p>
+      <p class="lede">Most of it happens on the broker’s site. Once your account is open, send us two details on Telegram and we activate your licence by hand.</p>
     </div>
     <div class="flow">
       <div class="card"><span class="num">01</span><h3>Register via the IB link</h3><p>Pick a broker below and sign up through the link. An account opened any other way cannot be activated later.</p></div>
@@ -214,32 +229,32 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
   </div>
 </section>
 
-<section>
+<section id="broker">
   <div class="narrow">
     <div class="sec-head">
       <span class="eyebrow"><i></i>Step 01</span>
-      <h2>Choose your broker.</h2>
-      <p class="lede">Both run the same EA on identical terms. Vantage is our main recommended broker; pick VT Markets if Vantage is unavailable where you live.</p>
+      <h2>Pick your broker and register.</h2>
+      <p class="lede">Same EA, same terms on both. Vantage is our top pick; choose VT Markets if Vantage is not available in your country.</p>
     </div>
 
     <div class="brokers" role="radiogroup" aria-label="Choose your broker">
-      <label class="broker" data-broker="Vantage" data-account="Standard Cent STP" data-url="https://vigco.co/la-scom-inv/ms/62sjKrb4">
-        <input type="radio" name="broker" value="Vantage">
+      <label class="broker sel" data-broker="Vantage" data-account="Standard Cent STP" data-url="https://vigco.co/la-scom-inv/ms/62sjKrb4">
+        <input type="radio" name="broker" value="Vantage" checked>
         <span class="dot"></span>
-        <span class="opt">Option A</span>
+        <span class="opt">Recommended</span>
         <span class="nm">Vantage</span>
         <span class="ds">IB ID: 32363667 · invitation code: 62sjKrb4</span>
       </label>
       <label class="broker" data-broker="VT Markets" data-account="Cent STP" data-url="https://vtm.pro/la3-com/global/WZQN3t7b">
         <input type="radio" name="broker" value="VT Markets">
         <span class="dot"></span>
-        <span class="opt">Option B</span>
+        <span class="opt">Alternative</span>
         <span class="nm">VT Markets</span>
         <span class="ds">IB ID: 28908808 · invitation code: WZQN3t7b</span>
       </label>
     </div>
 
-    <a class="btn btn--amber" id="ibLink" href="#" rel="nofollow noopener" target="_blank" aria-disabled="true" style="width:100%">Choose a broker first</a>
+    <a class="btn btn--amber btn--lg" id="ibLink" href="https://vigco.co/la-scom-inv/ms/62sjKrb4" rel="nofollow noopener" target="_blank" style="width:100%">Register with Vantage (free)</a>
     <p class="fine" style="margin-top:14px">Already have an account with either broker? It only qualifies if it was opened under this IB link. Ask on Telegram before opening a second one.</p>
   </div>
 </section>
@@ -248,7 +263,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
   <div class="narrow">
     <div class="sec-head">
       <span class="eyebrow"><i></i>Step 04</span>
-      <h2>Send two things on Telegram.</h2>
+      <h2>Last step: send us two things on Telegram.</h2>
       <p class="lede">Activation is done by hand. These are the only details needed to match your account against the IB list.</p>
     </div>
 
@@ -330,6 +345,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
 </section>
 </main>
 
+<div class="stickybar" id="stickybar"><span>Get Gold Crack EA <b>free</b></span><a class="btn btn--amber btn--sm" href="#broker">Register</a></div>
+
 <div class="risk">
   <div class="wrap">
     <span class="eyebrow" style="color:var(--muted)"><i style="background:var(--muted)"></i>Risk disclosure</span>
@@ -354,10 +371,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,summary:focus-visible{o
       cards.forEach(function(c){ c.classList.remove('sel'); });
       card.classList.add('sel');
       ibLink.href = card.dataset.url;
-      ibLink.textContent = 'Register with ' + card.dataset.broker;
+      ibLink.textContent = 'Register with ' + card.dataset.broker + ' (free)';
       ibLink.removeAttribute('aria-disabled');
     });
   });
+  var bar = document.getElementById('stickybar'), hero = document.querySelector('.hero'), broker = document.getElementById('broker');
+  if ('IntersectionObserver' in window && bar){
+    var heroVis = true, brokerVis = false;
+    function upd(){ bar.classList.toggle('show', !heroVis && !brokerVis); }
+    new IntersectionObserver(function(e){ heroVis = e[0].isIntersecting; upd(); }).observe(hero);
+    new IntersectionObserver(function(e){ brokerVis = e[0].isIntersecting; upd(); }).observe(broker);
+  }
 })();
 </script>
 </body>

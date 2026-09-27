@@ -3,8 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GOLD CRACK EA — automated XAUUSD trading for MT5 | Mr Cracks</title>
-<meta name="description" content="MT5 expert advisor for XAUUSD. BuyStop and SellStop around price, adaptive grid recovery, single basket take profit, equity kill-switch, lifetime licences.">
+<title>Gold Crack EA — XAUUSD Expert Advisor for MT5 | Mr Cracks</title>
+<meta name="description" content="Gold Crack EA is an automated XAUUSD expert advisor for MT5: breakout entries, adaptive grid recovery, equity kill-switch and news filter. Lifetime licence.">
+<link rel="canonical" href="https://eagoldcrack.com/">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mr Cracks">
+<meta property="og:url" content="https://eagoldcrack.com/">
+<meta property="og:title" content="Gold Crack EA — Automated XAUUSD Expert Advisor for MT5">
+<meta property="og:description" content="Breakout entries, adaptive grid recovery and built-in risk controls for gold on MetaTrader 5. Lifetime licence, free option available.">
+<meta property="og:image" content="https://eagoldcrack.com/assets/logo.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/assets/logo.png">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Gold Crack EA", "applicationCategory": "FinanceApplication", "operatingSystem": "MetaTrader 5 (Windows)", "url": "https://eagoldcrack.com/", "image": "https://eagoldcrack.com/assets/logo.png", "description": "Automated XAUUSD expert advisor for MetaTrader 5 with breakout entries, adaptive grid recovery, basket take profit and built-in risk controls.", "publisher": {"@type": "Organization", "name": "Mr Cracks", "url": "https://eagoldcrack.com/", "sameAs": ["https://t.me/mrcrackmy", "https://www.tiktok.com/@abangbotmy"]}, "offers": [{"@type": "Offer", "name": "Free licence (1 MT5 account, via IB link)", "price": "0", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Lifetime licence, 5 MT5 accounts", "price": "599", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Lifetime licence, unlimited MT5 accounts", "price": "1099", "priceCurrency": "USD"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Gold Crack EA?", "acceptedAnswer": {"@type": "Answer", "text": "Gold Crack EA is an expert advisor (automated trading software) for MetaTrader 5, built only for XAUUSD. It enters on breakouts with a BuyStop and SellStop, manages the open side with adaptive grid recovery, and closes everything as one basket. An equity kill-switch, news filter and rollover pause are built in."}}, {"@type": "Question", "name": "Which pair is it built for?", "acceptedAnswer": {"@type": "Answer", "text": "XAUUSD (gold) on MetaTrader 5 only. A recommended preset ships with the EA, tuned around gold's volatility and spread behaviour."}}, {"@type": "Question", "name": "Can I test it before going live?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Register through our IB link with Vantage or VT Markets first. Once you are registered, you can run Gold Crack EA on a demo account and watch how it trades before you go live. Demo testing is only available after registration."}}, {"@type": "Question", "name": "How much capital do I need?", "acceptedAnswer": {"@type": "Answer", "text": "The minimum to start is $200 USD, equal to 20,000 USC on a cent account. We recommend 50,000 USC ($500) or more, because a larger buffer gives grid recovery room during volatile moves."}}, {"@type": "Question", "name": "Does this guarantee profit?", "acceptedAnswer": {"@type": "Answer", "text": "No. Gold Crack EA is an automated trading tool, not a promised return. Market conditions, account size, lot settings, spread and your own risk settings still decide the outcome."}}, {"@type": "Question", "name": "Can I use any broker?", "acceptedAnswer": {"@type": "Answer", "text": "Paid licences work with any MT5 broker. The free licence only covers accounts opened through our IB link with Vantage or VT Markets."}}, {"@type": "Question", "name": "How do I install it?", "acceptedAnswer": {"@type": "Answer", "text": "Download the .ex5 file, copy it into MQL5/Experts from inside MT5, whitelist the licence URL and attach it to an XAUUSD chart. The install guide walks through all six steps."}}, {"@type": "Question", "name": "What if the licence expires mid-session?", "acceptedAnswer": {"@type": "Answer", "text": "The EA rechecks the licence every hour. If it is revoked or expired, pending orders are removed and no new trades open."}}]}</script>
 <meta name="theme-color" content="#05070E">
 <meta name="facebook-domain-verification" content="xxsej3sdfpp8tkeicwdxehi8zxl0i6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -226,6 +238,11 @@ footer a:hover{color:var(--text)}
 .btn--amber:hover{box-shadow:0 12px 34px -8px rgba(245,165,36,.8)}
 .cta{border-color:rgba(245,165,36,.35);background:radial-gradient(ellipse 80% 90% at 50% 0%,rgba(245,165,36,.20),transparent 70%),var(--surface)}
 
+/* demo note */
+.demo-note{display:inline-flex;align-items:center;gap:10px;margin:14px auto 0;padding:8px 14px;border-radius:100px;border:1px solid rgba(47,163,124,.55);background:rgba(47,163,124,.12);color:#CFF2E4;font-size:.9rem;font-weight:500}
+.demo-note b{background:#2FA37C;color:#04130D;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:100px}
+.hero .eyebrow + .demo-note{display:flex;width:fit-content}
+
 /* brighter text + gold borders v3 */
 .btn--ghost{border-color:rgba(201,168,106,.45)}
 .btn--ghost:hover{border-color:#F5A524;background:rgba(245,165,36,.08)}
@@ -239,7 +256,7 @@ details[open]{border-color:rgba(245,165,36,.45)}
   <div class="wrap nav">
     <a class="brand" href="#top">
       <!-- TODO: letak fail logo sebenar di assets/logo.png -->
-      <img src="assets/logo.png" alt="" onerror="this.style.display='none'">
+      <img src="assets/logo.png" alt="Gold Crack EA logo" onerror="this.style.display='none'">
       GOLD CRACK EA
     </a>
     <nav class="navlinks">
@@ -249,18 +266,20 @@ details[open]{border-color:rgba(245,165,36,.45)}
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn--amber btn--sm" href="#pricing">Get access</a>
+    <a class="btn btn--amber btn--sm" href="/how-to-register/">Get started</a>
   </div>
 </header>
 
 <main id="top">
 <section class="hero">
   <div class="wrap">
-    <span class="eyebrow"><i></i>MT5 · XAUUSD · Lifetime licence</span>
-    <h1>Trade gold with <span>structure</span>, not predictions.</h1>
-    <p class="lede">GOLD CRACK EA brackets the market with a BuyStop above and a SellStop below. Whichever side fills is kept, the other is cancelled, and the live side is managed with adaptive grid recovery to a single basket exit.</p>
+    <span class="eyebrow"><i></i>MT5 EA · XAUUSD · Lifetime licence</span>
+    <p class="demo-note"><b>New</b> Register, then test it on a demo account first</p>
+    <h1>Stop staring at gold charts. Let <span>Gold Crack EA</span> do the work.</h1>
+    <p class="lede">Gold Crack EA is an automated XAUUSD expert advisor for MetaTrader 5. It handles every entry, recovery and exit for you, following a fixed set of rules instead of guesses, with built-in limits that close everything if drawdown reaches the level you set.</p>
     <div class="hero-cta">
-      <a class="btn btn--amber" href="#pricing">Get access</a>
+      <a class="btn btn--amber" href="/how-to-register/">Register &amp; try on demo</a>
+      <a class="btn btn--ghost" href="#how">See how it works</a>
     </div>
     <dl class="stats">
       <div class="stat"><dt>Platform</dt><dd>MetaTrader 5</dd></div>
@@ -275,14 +294,14 @@ details[open]{border-color:rgba(245,165,36,.45)}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow"><i></i>How it works</span>
-      <h2>One <span class="gold">repeating</span> cycle.</h2>
-      <p class="lede">No forecasting, no signals to interpret. The EA runs the same four movements, then starts again.</p>
+      <h2>One <span class="gold">repeatable</span> cycle on every gold move.</h2>
+      <p class="lede">No forecasting, no signals to interpret. Gold Crack EA runs the same four steps on XAUUSD, then starts again.</p>
     </div>
     <div class="flow">
-      <div class="card"><span class="num">01</span><h3>Bracket the price</h3><p>While flat, a BuyStop is placed above the market and a SellStop below it, ready for a break either way.</p></div>
-      <div class="card"><span class="num">02</span><h3>Keep the filled side</h3><p>The moment one triggers, the opposite pending order is cancelled. Both sides never run at once.</p></div>
-      <div class="card"><span class="num">03</span><h3>Recover with a grid</h3><p>If price turns against the open side, positions are added at adaptive spacing, pulling basket breakeven closer.</p></div>
-      <div class="card"><span class="num">04</span><h3>Exit as one basket</h3><p>Take profit is recalculated as the grid grows. When hit, every position on that side closes together.</p></div>
+      <div class="card"><span class="num">01</span><h3>Bracket the price</h3><p>While flat, the EA sets a BuyStop above and a SellStop below the market, ready for a breakout in either direction.</p></div>
+      <div class="card"><span class="num">02</span><h3>Follow the breakout</h3><p>The moment one order triggers, the opposite pending order is cancelled. Only one direction runs at a time.</p></div>
+      <div class="card"><span class="num">03</span><h3>Recover with a smart grid</h3><p>If price pulls back against the open side, positions are added at adaptive spacing to bring basket breakeven closer.</p></div>
+      <div class="card"><span class="num">04</span><h3>Exit as one basket</h3><p>Take profit is recalculated as the grid grows. When it is reached, every position on that side closes together.</p></div>
     </div>
   </div>
 </section>
@@ -290,17 +309,17 @@ details[open]{border-color:rgba(245,165,36,.45)}
 <section id="features">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow"><i></i>Built in</span>
-      <h2>Control over the parts <span class="gold">that hurt.</span></h2>
-      <p class="lede">Grid systems fail in predictable ways. These are the limits that sit around it.</p>
+      <span class="eyebrow"><i></i>Built-in risk controls</span>
+      <h2>Safeguards for the parts <span class="gold">that hurt.</span></h2>
+      <p class="lede">Grid systems fail in predictable ways. Gold Crack EA ships with the limits around them already built in.</p>
     </div>
     <div class="feats">
-      <div class="feat amber"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5 15.5 4v5c0 4-2.8 6.6-6.5 7.5C5.3 15.6 2.5 13 2.5 9V4L9 1.5Z" stroke="#F2A94B" stroke-width="1.4" stroke-linejoin="round"/></svg></div><h3>Equity kill-switch</h3><p>If equity drawdown breaches your threshold, managed positions are closed and pending orders removed.</p></div>
-      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#C9A86A" stroke-width="1.4"/><path d="M9 5v4l2.5 2" stroke="#C9A86A" stroke-width="1.4" stroke-linecap="round"/></svg></div><h3>Rollover pause</h3><p>Pending orders are pulled through the broker rollover window so a spread spike cannot fake a breakout.</p></div>
-      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2.5 12.5 6.5 7l3.5 3 5-6.5" stroke="#C9A86A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>News filter</h3><p>Optional pause on new entries before and after high-impact releases.</p></div>
-      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2.5" y="2.5" width="13" height="13" rx="2" stroke="#C9A86A" stroke-width="1.4"/><path d="M6 9h6" stroke="#C9A86A" stroke-width="1.4" stroke-linecap="round"/></svg></div><h3>Max open hours</h3><p>Optional time-based exit closes a side that has stayed open past your configured limit.</p></div>
-      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3.5" y="8" width="11" height="7" rx="1.6" stroke="#C9A86A" stroke-width="1.4"/><path d="M6 8V5.5a3 3 0 0 1 6 0V8" stroke="#C9A86A" stroke-width="1.4"/></svg></div><h3>Account-bound licence</h3><p>Keys are tied to MT5 account numbers on the server and verified every hour while running.</p></div>
-      <div class="feat amber"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 14V7M7.5 14V3M12 14v-5M16 14V5" stroke="#F2A94B" stroke-width="1.4" stroke-linecap="round"/></svg></div><h3>Adaptive spacing</h3><p>Grid distance and lot multiplier are tuned to XAUUSD volatility rather than fixed pip steps.</p></div>
+      <div class="feat amber"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 1.5 15.5 4v5c0 4-2.8 6.6-6.5 7.5C5.3 15.6 2.5 13 2.5 9V4L9 1.5Z" stroke="#F2A94B" stroke-width="1.4" stroke-linejoin="round"/></svg></div><h3>Equity kill-switch</h3><p>Set your maximum drawdown. If equity breaches it, every managed position is closed and pending orders are removed automatically.</p></div>
+      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#C9A86A" stroke-width="1.4"/><path d="M9 5v4l2.5 2" stroke="#C9A86A" stroke-width="1.4" stroke-linecap="round"/></svg></div><h3>Rollover pause</h3><p>Pending orders are pulled during the broker rollover window, so a spread spike cannot trigger a fake breakout.</p></div>
+      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2.5 12.5 6.5 7l3.5 3 5-6.5" stroke="#C9A86A" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>News filter</h3><p>Optional pause on new entries before and after high-impact news such as NFP and CPI.</p></div>
+      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2.5" y="2.5" width="13" height="13" rx="2" stroke="#C9A86A" stroke-width="1.4"/><path d="M6 9h6" stroke="#C9A86A" stroke-width="1.4" stroke-linecap="round"/></svg></div><h3>Max open hours</h3><p>Close a side automatically if it stays open longer than you allow.</p></div>
+      <div class="feat"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3.5" y="8" width="11" height="7" rx="1.6" stroke="#C9A86A" stroke-width="1.4"/><path d="M6 8V5.5a3 3 0 0 1 6 0V8" stroke="#C9A86A" stroke-width="1.4"/></svg></div><h3>Account-bound licence</h3><p>Your licence is tied to your MT5 account numbers and checked every hour, so it cannot be copied or shared.</p></div>
+      <div class="feat amber"><div class="ic"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 14V7M7.5 14V3M12 14v-5M16 14V5" stroke="#F2A94B" stroke-width="1.4" stroke-linecap="round"/></svg></div><h3>Adaptive spacing</h3><p>Grid distance and lot multiplier adjust to gold’s volatility instead of using fixed pip steps.</p></div>
     </div>
   </div>
 </section>
@@ -310,8 +329,8 @@ details[open]{border-color:rgba(245,165,36,.45)}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow"><i></i>Download</span>
-      <h2>Download the MT5 file.</h2>
-      <p class="lede">Gold Crack EA runs on MetaTrader 5. After downloading, follow the install guide and message Telegram if your licence is not active yet.</p>
+      <h2>Download Gold Crack EA for MT5.</h2>
+      <p class="lede">Gold Crack EA runs on MetaTrader 5 only. Download the file, follow the <a href="/how-to-install/" style="color:var(--amber-soft)">step-by-step install guide</a>, and message us on Telegram if your licence is not active yet.</p>
     </div>
     <div class="downloads">
       <div class="download-card amber">
@@ -338,13 +357,13 @@ details[open]{border-color:rgba(245,165,36,.45)}
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow"><i></i>Pricing</span>
-      <h2>Three ways in. <span class="gold">All lifetime.</span></h2>
-      <p class="lede">Every licence is bound to your MT5 account numbers and activated by hand after verification.</p>
+      <h2>Three licences. <span class="gold">All lifetime.</span></h2>
+      <p class="lede">Pay once, use it for life. Every licence is bound to your MT5 account numbers and activated by hand after verification.</p>
     </div>
     <div class="plans">
       <div class="plan">
         <h3>Free</h3>
-        <p class="sub">One MT5 account</p>
+        <p class="sub">Start with one MT5 account</p>
         <div class="amount">$0<small>Requires registering through the IB link</small></div>
         <ul>
           <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#2FA37C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Register with Vantage or VT Markets</li>
@@ -357,7 +376,7 @@ details[open]{border-color:rgba(245,165,36,.45)}
       <div class="plan plan--feat">
         <span class="badge">Best value</span>
         <h3>5 accounts</h3>
-        <p class="sub">For running several accounts</p>
+        <p class="sub">For traders running several accounts</p>
         <div class="amount">$599<small>USDT (TRC20) · one-time</small></div>
         <ul>
           <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#F2A94B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Activate up to 5 MT5 accounts</li>
@@ -390,13 +409,15 @@ details[open]{border-color:rgba(245,165,36,.45)}
   <div class="wrap" style="max-width:860px">
     <div class="sec-head">
       <span class="eyebrow"><i></i>FAQ</span>
-      <h2>Before you activate.</h2>
+      <h2>Gold Crack EA questions, answered.</h2>
     </div>
-    <details open><summary>Which pair is it built for?</summary><p>XAUUSD on MetaTrader 5 only. A recommended preset ships with the EA, tuned around gold's volatility and spread behaviour.</p></details>
-    <details><summary>What equity is recommended?</summary><p>The minimum to start is $200 USD, equal to 20,000 USC on a cent account. 50,000 USC or more is recommended, because a larger buffer gives grid recovery room during volatile movement.</p></details>
-    <details><summary>Does this guarantee profit?</summary><p>No. It is an automated trading tool, not a return. Market conditions, account size, lot settings, spread, and your own risk control still decide the outcome.</p></details>
-    <details><summary>Can I use any broker?</summary><p>Paid licences work with any MT5 broker. The free licence only covers accounts opened through the IB link with Vantage or VT Markets.</p></details>
-    <details><summary>How do I get the EA file?</summary><p>It is sent to you directly on Telegram once your licence is activated, along with the preset file and setup help.</p></details>
+    <details open><summary>What is Gold Crack EA?</summary><p>Gold Crack EA is an expert advisor (automated trading software) for MetaTrader 5, built only for XAUUSD. It enters on breakouts with a BuyStop and SellStop, manages the open side with adaptive grid recovery, and closes everything as one basket. An equity kill-switch, news filter and rollover pause are built in.</p></details>
+    <details><summary>Which pair is it built for?</summary><p>XAUUSD (gold) on MetaTrader 5 only. A recommended preset ships with the EA, tuned around gold's volatility and spread behaviour.</p></details>
+    <details><summary>Can I test it before going live?</summary><p>Yes. Register through our IB link with Vantage or VT Markets first. Once you are registered, you can run Gold Crack EA on a demo account and watch how it trades before you go live. Demo testing is only available after registration.</p></details>
+    <details><summary>How much capital do I need?</summary><p>The minimum to start is $200 USD, equal to 20,000 USC on a cent account. We recommend 50,000 USC ($500) or more, because a larger buffer gives grid recovery room during volatile moves.</p></details>
+    <details><summary>Does this guarantee profit?</summary><p>No. Gold Crack EA is an automated trading tool, not a promised return. Market conditions, account size, lot settings, spread and your own risk settings still decide the outcome.</p></details>
+    <details><summary>Can I use any broker?</summary><p>Paid licences work with any MT5 broker. The free licence only covers accounts opened through our IB link with Vantage or VT Markets.</p></details>
+    <details><summary>How do I install it?</summary><p>Download the .ex5 file, copy it into MQL5/Experts from inside MT5, whitelist the licence URL and attach it to an XAUUSD chart. The <a href="/how-to-install/" style="color:var(--amber-soft)">install guide</a> walks through all six steps.</p></details>
     <details><summary>What if the licence expires mid-session?</summary><p>The EA rechecks the licence every hour. If it is revoked or expired, pending orders are removed and no new trades open.</p></details>
   </div>
 </section>
@@ -404,10 +425,10 @@ details[open]{border-color:rgba(245,165,36,.45)}
 <section>
   <div class="wrap">
     <div class="cta">
-      <h2>Read the group <span class="gold">before you pay</span> for anything.</h2>
-      <p class="lede">Telegram carries the update notes, setup questions, and unedited user feedback. Look through it first, then pick the licence that matches your setup.</p>
+      <h2>Don’t take our word for it. <span class="gold">Ask 2,000 members.</span></h2>
+      <p class="lede">Our Telegram channel has around 2,000 members, with update notes, setup help and unedited feedback from people already running Gold Crack EA. Look around first, then decide.</p>
       <div class="hero-cta">
-        <a class="btn btn--amber" href="https://t.me/mrcrackmy">Join the Telegram group</a>
+        <a class="btn btn--amber" href="https://t.me/mrcrackmy">See the feedback on Telegram</a>
         <a class="btn btn--ghost" href="https://t.me/mrcracks">Message @mrcracks</a>
       </div>
     </div>

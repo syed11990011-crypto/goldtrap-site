@@ -244,6 +244,12 @@ footer a:hover{color:var(--text)}
 .card:hover,.feat:hover,details:hover{border-color:rgba(245,165,36,.6)}
 details[open]{border-color:rgba(245,165,36,.45)}
 .download-card .dl-alt{margin-top:10px}
+
+/* free plan as the star */
+.plan--free{position:relative;border-color:rgba(245,165,36,.8);box-shadow:0 0 0 1px rgba(245,165,36,.3),0 20px 64px -12px rgba(245,165,36,.42);background:linear-gradient(180deg,rgba(245,165,36,.18),transparent 55%),var(--surface)}
+.badge--free{background:#FFD27A}
+.plan--free .amount small{font-family:var(--body);font-size:.88rem;font-weight:600;letter-spacing:0;color:#FFD27A}
+.plan--feat{border-color:rgba(245,165,36,.45);box-shadow:none;background:linear-gradient(180deg,rgba(245,165,36,.08),transparent 45%),var(--surface)}
 </style>
 </head>
 <body>
@@ -357,16 +363,19 @@ details[open]{border-color:rgba(245,165,36,.45)}
       <p class="lede">Pay once, use it for life. Every licence is bound to your MT5 account numbers and activated by hand after verification.</p>
     </div>
     <div class="plans">
-      <div class="plan">
+      <div class="plan plan--free">
+        <span class="badge badge--free">Start here</span>
         <h3>Free</h3>
-        <p class="sub">Start with one MT5 account</p>
-        <div class="amount">$0<small>Requires registering through the IB link</small></div>
+        <p class="sub">The full EA, at zero cost</p>
+        <div class="amount">$0<small>Same EA and preset as the $599 licence</small></div>
         <ul>
-          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#2FA37C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Register with Vantage or VT Markets</li>
-          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#2FA37C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Complete KYC, open an MT5 cent account</li>
-          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#2FA37C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Send your account number on Telegram</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#2FA37C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Sign up with Vantage or VT Markets through our link</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#2FA37C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Verify your account and open an MT5 cent account</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#2FA37C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Send your account number on Telegram and we activate it for you</li>
+          <li><svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M3 8l3 3 6-7" stroke="#2FA37C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Lifetime licence for one MT5 account</li>
         </ul>
-        <a class="btn btn--ghost" href="/how-to-register/">Claim free licence</a>
+        <p class="fine">No payment needed. Your licence is covered by broker rebates.</p>
+        <a class="btn btn--amber" href="/how-to-register/">Claim my free licence</a>
       </div>
 
       <div class="plan plan--feat">

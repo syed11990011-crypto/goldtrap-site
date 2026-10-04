@@ -77,6 +77,10 @@ a:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
 .file .ver{font-family:var(--data);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft)}
 .file p{color:#C3CCDC;font-size:.95rem;flex:1}
 .demo{align-self:flex-start;font-family:var(--data);font-size:.66rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#1A0E02;background:var(--gold-soft);padding:5px 9px}
+.file{position:relative}
+.new{position:absolute;top:-11px;right:14px;font-family:var(--data);font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:#FF4D3D;padding:5px 11px;box-shadow:0 0 18px rgba(255,77,61,.55);animation:newpulse 1.8s ease-in-out infinite}
+@keyframes newpulse{0%,100%{box-shadow:0 0 10px rgba(255,77,61,.4)}50%{box-shadow:0 0 22px rgba(255,77,61,.85)}}
+@media(prefers-reduced-motion:reduce){.new{animation:none}}
 .file .fname{display:flex;flex-direction:column;gap:3px;padding:10px 12px;background:#080C16;border:1px solid rgba(201,168,106,.3);font-family:var(--data);font-size:.82rem;color:var(--ink);word-break:break-all}
 .file .fname span{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite)}
 .file .meta{font-family:var(--data);font-size:.68rem;letter-spacing:.06em;color:var(--graphite)}
@@ -147,6 +151,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
       <a class="btn" href="/downloads/Goldtrap_v4.2.4.ex5" download>Download</a>
     </article>
     <article class="file">
+      <span class="new">New</span>
       <span class="ver">Gold</span>
       <h3>GoldTrap Yin</h3>
       <p>MetaTrader 5 · BUY positions only</p>
@@ -154,6 +159,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
       <a class="btn" href="/downloads/GoldTrap_Yin.ex5" download>Download</a>
     </article>
     <article class="file">
+      <span class="new">New</span>
       <span class="ver">Gold</span>
       <h3>GoldTrap Yang</h3>
       <p>MetaTrader 5 · SELL positions only</p>

@@ -90,6 +90,8 @@ a:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
 .file .fname span{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--graphite)}
 .file .meta{font-family:var(--data);font-size:.68rem;letter-spacing:.06em;color:var(--graphite)}
 .file .btn{width:100%}
+.pair{display:flex;flex-direction:column;gap:14px}
+.pair-item{display:flex;flex-direction:column;gap:8px}
 
 .note{
   display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;
@@ -163,9 +165,16 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
       <span class="new">New</span>
       <span class="ver">Gold · 2 files</span>
       <h3>GoldTrap Yin &amp; Yang</h3>
-      <p>MetaTrader 5 · Yin: BUY positions only · Yang: SELL positions only</p>
-      <span class="fname"><span>Folder (ZIP)</span>GoldTrap_Yin_Yang.zip<span style="text-transform:none;letter-spacing:0;font-size:.72rem;color:var(--graphite);margin-top:2px">GoldTrap_Yin.ex5 · GoldTrap_Yang.ex5</span></span>
-      <a class="btn" href="/downloads/GoldTrap_Yin_Yang.zip" download>Download</a>
+      <div class="pair">
+        <div class="pair-item">
+          <span class="fname"><span>Yin · BUY positions only</span>GoldTrap_Yin.ex5</span>
+          <a class="btn" href="/downloads/GoldTrap_Yin.ex5" download>Download Yin</a>
+        </div>
+        <div class="pair-item">
+          <span class="fname"><span>Yang · SELL positions only</span>GoldTrap_Yang.ex5</span>
+          <a class="btn" href="/downloads/GoldTrap_Yang.ex5" download>Download Yang</a>
+        </div>
+      </div>
     </article>
   </section>
 

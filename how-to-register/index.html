@@ -207,6 +207,59 @@ header{background:rgba(255,251,242,.88)}
 .broker .ds{color:#3E4454}
 .fine{font-size:.84rem;line-height:1.6;color:#2F3445}
 .broker.sel{border-color:var(--amber)!important}
+
+/* register page polish v6 */
+.fine{font-family:var(--body)!important;letter-spacing:0}
+#broker{padding-top:48px}
+#broker .sec-head{margin-bottom:26px}
+.broker .ds{font-size:.92rem}
+#ibLink{font-size:1.06rem;padding:18px 24px}
+@media(max-width:700px){
+  section{padding:52px 0}
+  .hero{padding:44px 0 36px}
+  .stats{grid-template-columns:repeat(3,1fr)!important;gap:8px;margin-top:28px}
+  .stat{padding:12px 6px}
+  .stat dt{font-size:.62rem!important;letter-spacing:.08em}
+  .stat dd{font-size:.86rem}
+  .flow{gap:10px}
+  .flow .card{display:grid;grid-template-columns:44px 1fr;column-gap:14px;padding:16px}
+  .flow .card .num{grid-row:1/3;margin:0;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#F5A524,#FFC94D);color:#1A0E02;font-size:.9rem}
+  .flow .card h3{margin:2px 0 4px}
+  .sec-head{margin-bottom:28px}
+}
+
+/* register page v7: stronger visual */
+.hero{background:radial-gradient(ellipse 90% 70% at 50% 0%,rgba(255,196,77,.35),transparent 70%)}
+.hero h1{font-size:clamp(2.3rem,5.2vw,3.7rem)}
+.stats{background:#fff;border:1px solid rgba(176,120,20,.35);border-radius:18px;box-shadow:0 18px 40px -18px rgba(150,90,10,.35);gap:0!important;overflow:hidden}
+.stats .stat{border:0!important;box-shadow:none!important;border-radius:0;background:transparent}
+.stats .stat + .stat{border-left:1px solid rgba(176,120,20,.2)!important}
+.stats .stat:first-child dd{color:#D97706;font-size:1.15rem;font-weight:800}
+#broker{background:#FFFFFF;border-top:1px solid rgba(176,120,20,.18);border-bottom:1px solid rgba(176,120,20,.18)}
+.broker{padding-left:84px;min-height:118px}
+.broker .nm::before{position:absolute;left:20px;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:14px;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:1.05rem;letter-spacing:-.02em;background:#FFF4DE;color:#B8660A;border:1px solid rgba(176,120,20,.3)}
+.broker[data-broker="Vantage"] .nm::before{content:"V"}
+.broker[data-broker="VT Markets"] .nm::before{content:"VT"}
+.broker.sel{background:linear-gradient(135deg,#FFE7B3,#FFF7E6 70%)!important;border:2px solid #F5A524!important;box-shadow:0 18px 40px -16px rgba(245,165,36,.55)!important}
+.broker.sel .nm::before{background:linear-gradient(145deg,#F5A524,#FFC94D);color:#1A0E02;border-color:#F5A524}
+.broker .dot{width:24px;height:24px}
+.broker.sel .dot{background:#F5A524;border-color:#F5A524}
+.broker.sel .dot::after{background:#fff;width:9px;height:9px}
+#ibLink{background:linear-gradient(135deg,#F59E0B,#FFB627);font-size:1.12rem;padding:20px 24px;border-radius:14px;box-shadow:0 16px 36px -12px rgba(245,158,11,.6)}
+#ibLink::after{content:"→";font-size:1.2em;margin-left:4px}
+.trust{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 18px;margin:16px 0 4px;padding:0}
+.trust li{display:flex;align-items:center;gap:7px;font-size:.92rem;font-weight:600;color:#262A35}
+.trust li::before{content:"✓";display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#2FA37C;color:#fff;font-size:.72rem;font-weight:800}
+.flow .card .num{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#F5A524,#FFC94D);color:#1A0E02;font-size:.9rem;font-weight:800}
+.send .n{background:linear-gradient(145deg,#F5A524,#FFC94D)!important;color:#1A0E02!important;border:0!important;font-weight:800}
+.reqs .req:nth-child(5),.reqs .req:nth-child(6){background:#FFF6E3}
+@media(max-width:700px){
+  .stats{grid-template-columns:repeat(3,1fr)!important;margin-top:26px}
+  .flow{position:relative;gap:12px}
+  .flow::before{content:"";position:absolute;left:35px;top:30px;bottom:30px;width:2px;background:linear-gradient(#F5A524,#FFD98A)}
+  .flow .card{position:relative}
+  .broker{padding-left:80px}
+}
 </style>
 </head>
 <body>
@@ -243,26 +296,10 @@ header{background:rgba(255,251,242,.88)}
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow"><i></i>The process</span>
-      <h2>Four steps. Nothing to pay.</h2>
-      <p class="lede">Most steps are on the broker’s site. Then send us two details on Telegram and we activate your licence.</p>
-    </div>
-    <div class="flow">
-      <div class="card"><span class="num">01</span><h3>Register via the IB link</h3><p>Pick a broker below and sign up through our link. Already have an account? Ask the broker to change your IB to us.</p></div>
-      <div class="card"><span class="num">02</span><h3>Verify your identity</h3><p>Upload your ID and proof of address in the broker portal, then wait for approval.</p></div>
-      <div class="card"><span class="num">03</span><h3>Open an MT5 cent account</h3><p>A cent account lets you run XAUUSD with a smaller deposit.</p></div>
-      <div class="card"><span class="num">04</span><h3>Send your details</h3><p>Send your MT5 account number and registered email on Telegram.</p></div>
-    </div>
-  </div>
-</section>
-
 <section id="broker">
   <div class="narrow">
     <div class="sec-head">
-      <span class="eyebrow"><i></i>Step 01</span>
+      <span class="eyebrow"><i></i>Start here</span>
       <h2>Pick your broker and register.</h2>
       <p class="lede">Same EA and terms on both. Vantage is recommended. Use VT Markets if Vantage isn’t available in your country.</p>
     </div>
@@ -285,7 +322,24 @@ header{background:rgba(255,251,242,.88)}
     </div>
 
     <a class="btn btn--amber btn--lg" id="ibLink" href="https://vigco.co/la-scom-inv/ms/62sjKrb4" rel="nofollow noopener" target="_blank" style="width:100%">Register with Vantage (free)</a>
+    <ul class="trust"><li>No payment</li><li>Lifetime licence</li><li>Demo test included</li></ul>
     <p class="fine" style="margin-top:14px">Already have an account with either broker? Ask their support to change your IB to the IB ID above, then message us on Telegram.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow"><i></i>How it works</span>
+      <h2>Four steps. Nothing to pay.</h2>
+      <p class="lede">Most steps are on the broker’s site. Then send us two details on Telegram and we activate your licence.</p>
+    </div>
+    <div class="flow">
+      <div class="card"><span class="num">01</span><h3>Register via the IB link</h3><p>Pick a broker above and sign up through our link. Already have an account? Ask the broker to change your IB to us.</p></div>
+      <div class="card"><span class="num">02</span><h3>Verify your identity</h3><p>Upload your ID and proof of address in the broker portal, then wait for approval.</p></div>
+      <div class="card"><span class="num">03</span><h3>Open an MT5 cent account</h3><p>A cent account lets you run XAUUSD with a smaller deposit.</p></div>
+      <div class="card"><span class="num">04</span><h3>Send your details</h3><p>Send your MT5 account number and registered email on Telegram.</p></div>
+    </div>
   </div>
 </section>
 

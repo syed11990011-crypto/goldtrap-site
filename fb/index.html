@@ -446,6 +446,40 @@ html:not(.dark) body{background:radial-gradient(circle at 50% 10%,rgba(255,196,7
 /* verified badge tight like FB/IG/TikTok */
 h1{gap:.16em!important}
 h1 svg[aria-label="Verified"]{width:.72em!important;height:.72em!important;transform:translateY(-.02em)}
+
+/* v8: pair gold with navy */
+html:not(.dark){--navy:#14284B;--navy-2:#21407A}
+html:not(.dark) body{background:radial-gradient(circle at 50% 10%,rgba(255,196,77,.34),transparent 20rem),linear-gradient(180deg,#FFF3DF 0%,#FFFBF4 38%,#F6F7FB 100%)!important}
+html:not(.dark) h1{color:var(--navy)}
+html:not(.dark) .links .link-card:not(:first-child){background:#FFFFFF!important;border:1.5px solid rgba(20,40,75,.18)!important;box-shadow:0 1px 2px rgba(22,24,31,.05),0 12px 28px -16px rgba(20,40,75,.35)!important}
+html:not(.dark) .links .link-card:not(:first-child):hover{border-color:var(--navy)!important}
+html:not(.dark) .links .link-card:not(:first-child) .icon-box{background:linear-gradient(145deg,var(--navy),var(--navy-2))!important;color:#FFD27A!important;border-color:var(--navy)!important}
+html:not(.dark) .links .link-card:not(:first-child) .label{color:var(--navy)}
+html:not(.dark) .socials a{color:var(--navy)!important}
+html:not(.dark) .socials a:hover{color:#F97316!important}
+html:not(.dark) .pill,html:not(.dark) .round{color:var(--navy)!important;border-color:rgba(20,40,75,.2)!important;box-shadow:0 4px 14px -6px rgba(20,40,75,.3)!important}
+@media (max-width:767px){html:not(.dark) body{background:radial-gradient(circle at 50% 8%,rgba(255,196,77,.34),transparent 18rem),linear-gradient(180deg,#FFF3DF 0%,#FFFBF4 38%,#F6F7FB 100%)!important}}
+
+/* OPTION B: navy premium */
+html:not(.dark){--panel:#14284B;--text:#FFFFFF;--muted:#C9D3E6}
+html:not(.dark) body{background:radial-gradient(circle at 50% 12%,rgba(255,196,77,.22),transparent 20rem),linear-gradient(180deg,#1B3561 0%,#14284B 45%,#0F1F3B 100%)!important}
+@media (max-width:767px){html:not(.dark) body{background:radial-gradient(circle at 50% 10%,rgba(255,196,77,.22),transparent 18rem),linear-gradient(180deg,#1B3561 0%,#14284B 45%,#0F1F3B 100%)!important}}
+html:not(.dark) h1{color:#FFFFFF!important}
+html:not(.dark) .status{color:#C9D3E6!important}
+html:not(.dark) .links .link-card:not(:first-child){background:rgba(255,255,255,.07)!important;border:1.5px solid rgba(255,210,122,.35)!important;box-shadow:0 12px 28px -16px rgba(0,0,0,.5)!important}
+html:not(.dark) .links .link-card:not(:first-child) .label{color:#FFFFFF!important}
+html:not(.dark) .links .link-card:not(:first-child) .icon-box{background:linear-gradient(145deg,#F5A524,#FFC94D)!important;color:#14284B!important;border:0!important}
+html:not(.dark) .socials a{color:#FFD27A!important}
+html:not(.dark) .footer-credit{color:#9FB0CC!important}
+html:not(.dark) .pill,html:not(.dark) .round{background:rgba(255,255,255,.1)!important;color:#FFFFFF!important;border-color:rgba(255,255,255,.25)!important}
+html:not(.dark) .online-dot{border-color:#14284B!important}
+@media (min-width:768px){html:not(.dark) .shell{background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.12)}}
+
+/* softer orange on channel button */
+.links .link-card:first-child{background:linear-gradient(135deg,#D9873A,#E9A65A)!important;border-color:#C9772D!important;box-shadow:0 12px 26px -14px rgba(217,135,58,.45)!important}
+.links .link-card:first-child:hover{background:linear-gradient(135deg,#CC7B30,#DF9A4E)!important}
+.links .link-card:first-child .icon-box{color:#C9772D!important}
+.links .link-card:first-child .badge{color:#B86A24!important}
 </style>
 </head>
 <body>

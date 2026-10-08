@@ -260,6 +260,30 @@ header{background:rgba(255,251,242,.88)}
   .flow .card{position:relative}
   .broker{padding-left:80px}
 }
+
+/* v8: pair gold with navy, less orange */
+:root{--navy:#14284B;--navy-2:#21407A}
+.eyebrow{color:var(--navy)!important;border-color:rgba(20,40,75,.18)!important;background:#FFFFFF!important}
+.eyebrow i{background:#F5A524!important}
+.card,.panel,.reqs,details{border-color:rgba(20,40,75,.14)!important}
+.card{border-top:3px solid var(--navy)!important}
+.stats{background:#fff!important;border-color:rgba(20,40,75,.16)!important;box-shadow:0 18px 40px -20px rgba(20,40,75,.35)!important}
+.stats .stat + .stat{border-left-color:rgba(20,40,75,.12)!important}
+.stat dt{color:#5A6478!important}
+.stat dd{color:var(--navy)}
+.stats .stat:first-child dd{color:#D97706!important}
+.flow .card .num,.send .n{background:var(--navy)!important;color:#FFD27A!important}
+.broker:not(.sel){border-color:rgba(20,40,75,.16)!important}
+.broker:not(.sel) .nm::before{background:#EEF2FA;color:var(--navy);border-color:rgba(20,40,75,.18)}
+.broker .opt{color:var(--navy)!important}
+.broker.sel .opt{color:#B8660A!important}
+.panel--amber{background:#FFFFFF!important}
+.two .panel--amber .btn--amber{background:var(--navy)!important;color:#fff!important;box-shadow:0 12px 28px -12px rgba(20,40,75,.6)!important}
+.reqs .req:nth-child(5),.reqs .req:nth-child(6){background:#F6F7FB!important}
+.reqs .req:nth-child(5) dd b,.reqs .req:nth-child(6) dd b{color:var(--navy)}
+section:nth-of-type(odd):not(.hero):not(#broker){background:#F6F7FB}
+.risk{background:#F6F7FB!important}
+@media(max-width:700px){.flow::before{background:linear-gradient(var(--navy),rgba(20,40,75,.25))!important}}
 </style>
 </head>
 <body>

@@ -6,14 +6,14 @@
 <title>How to Install Gold Crack EA on MT5 (6 Steps) | Mr Cracks</title>
 <meta name="description" content="Install Gold Crack EA on MT5 in six steps: open the data folder, copy into MQL5/Experts, refresh Navigator, whitelist the licence URL, attach to XAUUSD.">
 <link rel="canonical" href="https://eagoldcrack.com/how-to-install/">
-<meta name="theme-color" content="#05070E">
+<meta name="theme-color" content="#FFFBF2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="How to Install Gold Crack EA on MT5 (6 Steps)">
 <meta property="og:description" content="Step-by-step MT5 install guide for the Gold Crack XAUUSD expert advisor, plus fixes for the most common errors.">
 <meta property="og:url" content="https://eagoldcrack.com/how-to-install/">
 <meta property="og:image" content="https://eagoldcrack.com/assets/logo.png">
 <link rel="icon" href="/assets/logo.png">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to install Gold Crack EA on MetaTrader 5", "step": [{"@type": "HowToStep", "name": "Save the EA file from Telegram"}, {"@type": "HowToStep", "name": "Open the data folder from inside MT5"}, {"@type": "HowToStep", "name": "Copy the EA into MQL5/Experts"}, {"@type": "HowToStep", "name": "Refresh the Navigator panel"}, {"@type": "HowToStep", "name": "Allow WebRequest for the licence URL"}, {"@type": "HowToStep", "name": "Attach the EA to an XAUUSD chart"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to install Gold Crack EA on MetaTrader 5", "step": [{"@type": "HowToStep", "name": "Save the EA file"}, {"@type": "HowToStep", "name": "Open the data folder from inside MT5"}, {"@type": "HowToStep", "name": "Copy the EA into MQL5/Experts"}, {"@type": "HowToStep", "name": "Refresh the Navigator panel"}, {"@type": "HowToStep", "name": "Allow WebRequest for the licence URL"}, {"@type": "HowToStep", "name": "Attach the EA to an XAUUSD chart"}]}</script>
 <meta name="facebook-domain-verification" content="xxsej3sdfpp8tkeicwdxehi8zxl0i6">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -201,6 +201,22 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
 .btn--ghost:hover{border-color:#F5A524}
 .btn--brass{box-shadow:0 8px 28px -8px rgba(245,165,36,.65)}
 .step > div{min-width:0}
+
+/* bright theme v4 */
+:root{--paper:#FFFBF2;--paper-2:#FFF4DE;--card:#FFFFFF;--ink:#16181F;--graphite:#4E5566;--rule:rgba(196,140,40,.32);--rule-soft:rgba(196,140,40,.16);--brass:#D98A00;--brass-lift:#E8930C;--surface:#FFF4DE}
+body{background-image:linear-gradient(to right,rgba(150,110,30,.06) 1px,transparent 1px),linear-gradient(to bottom,rgba(150,110,30,.06) 1px,transparent 1px)}
+.lede{color:var(--graphite)}
+.ticker{color:#6B5530}
+.ticker b{color:#B8660A}
+header.nav{background:rgba(255,251,242,.9)}
+.hero h1 em{color:#D98A00}
+.btn--brass{background:#F5A524;border-color:#F5A524}
+.tracker-bar .tag{color:#6B5530}
+.tick span{background:#FFFFFF}
+.copyrow{background:#FFF6E3}
+.warnbox,.pre,.tracker{box-shadow:0 10px 28px -16px rgba(120,80,10,.22)}
+.risk p{color:var(--graphite)}
+.step a,.fine a{color:#B8660A!important;font-weight:600}
 </style>
 </head>
 <body>
@@ -221,7 +237,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
       <span><span class="brand-name">GOLD CRACK EA</span></span>
     </a>
     <nav class="nav-links">
-      <a href="/#how">How it trades</a>
+      <a href="/#how">How it works</a>
       <a href="/#features">Features</a>
       <a href="/#pricing">Pricing</a>
       <a href="/how-to-register/">Free licence</a>
@@ -236,14 +252,14 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
     <div class="crumb"><a href="/">GOLD CRACK EA</a> / Install guide</div>
     <div class="tag tag--brass">MetaTrader 5 · six steps</div>
     <h1>How to install Gold Crack EA on MT5 — <em>six steps</em>.</h1>
-    <p class="lede">From the downloaded file to a live EA on your XAUUSD chart. Almost every failed install comes down to the same two mistakes, so those steps are explained in detail.</p>
+    <p class="lede">From download to a running EA on your XAUUSD chart. Most problems come from two mistakes, so those steps have extra detail.</p>
     <div class="hero-cta">
       <a class="btn btn--brass" href="https://t.me/mrcracks">Request the EA on Telegram</a>
       <a class="btn btn--ghost" href="#steps">Go to the steps</a>
     </div>
     <div class="warnbox">
-      <h3>The two things that break most installs</h3>
-      <p>The EA file ends up in the wrong terminal folder, or the WebRequest URL is never added so the licence check cannot reach the server. Steps 02 and 05 handle those. If the EA is not showing up or not activating, start there.</p>
+      <h3>The two most common mistakes</h3>
+      <p>The EA file goes into the wrong folder, or the WebRequest URL isn’t added so the licence can’t be checked. Steps 02 and 05 fix these.</p>
     </div>
   </div>
 </section>
@@ -255,11 +271,11 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
       <h2>Have these three ready.</h2>
     </div>
     <div class="pre">
-      <div><span class="n">01</span><p>MetaTrader 5 installed and logged in to your broker account.</p></div>
-      <div><span class="n">02</span><p>Your MT5 account number, with the licence already activated for it.</p></div>
-      <div><span class="n">03</span><p>The GOLD CRACK EA <b>.ex5</b> file sent to you on Telegram, saved somewhere you can find it again.</p></div>
+      <div><span class="n">01</span><p>MT5 installed and logged in to your broker account.</p></div>
+      <div><span class="n">02</span><p>Your MT5 account number, with the licence activated.</p></div>
+      <div><span class="n">03</span><p>The Gold Crack EA <b>.ex5</b> file, saved where you can find it.</p></div>
     </div>
-    <p class="fine" style="margin-top:16px">Licence not activated yet? <a href="/how-to-register/" style="color:var(--brass)">Claim a free licence</a> or <a href="/#pricing" style="color:var(--brass)">choose a paid one</a> first. Installing before activation just produces a licence error on the chart.</p>
+    <p class="fine" style="margin-top:16px">No licence yet? <a href="/how-to-register/" style="color:var(--brass)">Get a free licence</a> or <a href="/#pricing" style="color:var(--brass)">choose a paid one</a> first, otherwise you’ll see a licence error.</p>
   </div>
 </section>
 
@@ -268,17 +284,17 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
     <div class="sec-head">
       <div class="tag">Install steps</div>
       <h2>Six steps, in this order.</h2>
-      <p class="lede">Each step ends where the next one begins. Do not jump ahead to attaching the EA before the licence URL is whitelisted.</p>
+      <p class="lede">Follow them in order. Don’t attach the EA before the licence URL is added.</p>
     </div>
 
     <div class="steps">
       <div class="step">
         <div class="step-n">01</div>
         <div>
-          <h3>Save the EA file from Telegram</h3>
-          <p>The EA is sent to you directly on Telegram after your licence is activated — a single <b>.ex5</b> file, plus a preset file if your package includes one.</p>
-          <p>Save it somewhere you can reach easily, like Downloads or Desktop. On a phone, forward the file to yourself on the computer running MT5; you cannot install it from the phone.</p>
-          <p class="why">Use the file sent to you directly rather than a copy from elsewhere. Versions passed around outside the group are often older builds, and they may not match the licence bound to your account.</p>
+          <h3>Save the EA file</h3>
+          <p>Download the <b>.ex5</b> file from our <a href="/downloads/" style="color:var(--brass)">downloads page</a> or get it on Telegram, plus a preset file if provided.</p>
+          <p>Save it somewhere easy, like Downloads or Desktop. You need a computer. EAs can’t be installed on a phone.</p>
+          <p class="why">Only use files from our website or Telegram. Copies from elsewhere may be old and won’t match your licence.</p>
         </div>
       </div>
 
@@ -288,7 +304,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
           <h3>Open the data folder from inside MT5</h3>
           <p>In MetaTrader 5, use the menu:</p>
           <div class="menupath">File <i>▸</i> Open Data Folder</div>
-          <p class="why"><b>Do not navigate to the folder by hand.</b> If you have more than one MT5 terminal installed — a second broker, an old install, a portable copy — each one has its own data folder, and they look identical. Opening it from inside the running terminal is the only way to be certain the file lands where that terminal will read it. This is the single most common install failure.</p>
+          <p class="why"><b>Don’t look for the folder manually.</b> If you have more than one MT5 installed, each has its own data folder and they look the same. Opening it from inside MT5 makes sure you use the right one. This is the most common mistake.</p>
         </div>
       </div>
 
@@ -296,7 +312,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
         <div class="step-n">03</div>
         <div>
           <h3>Copy the EA into Experts</h3>
-          <p>Inside the data folder, go into <b>MQL5</b>, then <b>Experts</b>, and drop the .ex5 file there.</p>
+          <p>Open <b>MQL5</b> → <b>Experts</b> and paste the .ex5 file there.</p>
           <div class="tree">
             <div class="tree-bar">Data folder / MQL5</div>
 <pre>MQL5/
@@ -306,7 +322,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
 ├── <span class="no">Scripts/     ✕ not here</span>
 └── <span class="dim">Files/       ✕ not here</span></pre>
           </div>
-          <p class="fine">An EA placed in Indicators or Scripts will never appear under Expert Advisors in Navigator, no matter how many times you refresh.</p>
+          <p class="fine">EAs placed in Indicators or Scripts won’t show up under Expert Advisors.</p>
         </div>
       </div>
 
@@ -314,8 +330,8 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
         <div class="step-n">04</div>
         <div>
           <h3>Refresh the Navigator panel</h3>
-          <p>Back in MT5, right-click <b>Expert Advisors</b> in the Navigator panel and choose <b>Refresh</b>. GOLD CRACK EA should appear in the list.</p>
-          <p>If it does not, close MetaTrader 5 completely and reopen it. Still missing? The file is in the wrong folder — go back to step 02.</p>
+          <p>In MT5, right-click <b>Expert Advisors</b> in the Navigator panel and click <b>Refresh</b>. Gold Crack EA should appear.</p>
+          <p>Not there? Restart MT5. Still missing? The file is in the wrong folder. Go back to step 02.</p>
         </div>
       </div>
 
@@ -323,14 +339,14 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
         <div class="step-n">05</div>
         <div>
           <h3>Allow WebRequest for the licence URL</h3>
-          <p>The EA verifies its licence online every hour. Without this URL whitelisted, the check cannot leave your terminal and the EA stops trading.</p>
+          <p>The EA checks its licence online every hour. Without this URL, the check fails and the EA stops trading.</p>
           <div class="menupath">Tools <i>▸</i> Options <i>▸</i> Expert Advisors</div>
-          <p>Tick <b>Allow WebRequest for listed URL</b>, add the address below, then press OK.</p>
+          <p>Tick <b>Allow WebRequest for listed URL</b>, add the URL below, then click OK.</p>
           <div class="copyrow">
             <span><span class="k">WebRequest URL</span><code>https://a689.link</code></span>
             <button class="copy" data-copy="https://a689.link">Copy</button>
           </div>
-          <p class="fine">Enter it exactly as shown — no trailing slash, no extra path.</p>
+          <p class="fine">Type it exactly as shown, with no slash at the end.</p>
         </div>
       </div>
 
@@ -338,9 +354,9 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
         <div class="step-n">06</div>
         <div>
           <h3>Attach the EA to your chart</h3>
-          <p>Open an <b>XAUUSD</b> chart, then drag GOLD CRACK EA from Navigator onto it. In the settings window, allow algo trading and load the supplied preset if you have one.</p>
-          <p>Before you leave it running, confirm the symbol, lot size, preset, spread, account balance, and risk settings all match what you intended.</p>
-          <p class="why">A smiling face in the top right corner means the EA is live. A sad face means algo trading is off — check the <b>Algo Trading</b> button in the toolbar as well as the setting in the EA window.</p>
+          <p>Open an <b>XAUUSD</b> chart and drag Gold Crack EA onto it. Allow algo trading and load the preset if you have one.</p>
+          <p>Before leaving it, check the symbol, lot size, preset and risk settings.</p>
+          <p class="why">A smiley face at the top right means the EA is running. A sad face means algo trading is off. Check the <b>Algo Trading</b> button in the toolbar.</p>
         </div>
       </div>
     </div>
@@ -351,8 +367,8 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
   <div class="narrow">
     <div class="sec-head">
       <div class="tag">Final checks</div>
-      <h2>Confirm all five before you walk away.</h2>
-      <p class="lede">Nothing is submitted here — the list is just so you can see what is still outstanding.</p>
+      <h2>Check these five before you leave it.</h2>
+      <p class="lede">Your own checklist. Nothing is sent.</p>
     </div>
     <div class="tracker">
       <div>
@@ -362,11 +378,11 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
         </div>
         <div class="meter"><i id="meter"></i></div>
       </div>
-      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>GOLD CRACK EA appears under Navigator → Expert Advisors.</p></label>
-      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>Algo Trading is switched on in the MT5 toolbar.</p></label>
-      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>The WebRequest URL <b>https://a689.link</b> is listed under Tools → Options → Expert Advisors.</p></label>
-      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>The chart shows the EA name with no licence error message.</p></label>
-      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>Lot size and risk settings match your account size, not the defaults.</p></label>
+      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>Gold Crack EA shows under Navigator → Expert Advisors.</p></label>
+      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>Algo Trading is on in the MT5 toolbar.</p></label>
+      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p><b>https://a689.link</b> is added in Tools → Options → Expert Advisors.</p></label>
+      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>The chart shows the EA with no licence error.</p></label>
+      <label class="check"><span class="tick"><input type="checkbox"><span></span></span><p>Lot size and risk settings match your account size.</p></label>
     </div>
   </div>
 </section>
@@ -375,14 +391,14 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
   <div class="narrow">
     <div class="sec-head">
       <div class="tag">If something is wrong</div>
-      <h2>Symptom first, then the usual cause.</h2>
+      <h2>Problems and fixes.</h2>
     </div>
 
     <details open>
       <summary>The EA is not in the Navigator list</summary>
       <div class="body">
         <span class="cause">Usual cause — wrong folder</span>
-        <p>The file went into a different terminal's data folder, or into Indicators instead of Experts. Open the data folder again through File → Open Data Folder in the terminal you actually want to run it on, and check that the .ex5 sits inside MQL5 → Experts. Then refresh Navigator.</p>
+        <p>The file is in another MT5’s folder, or in Indicators instead of Experts. Use File → Open Data Folder in the MT5 you want, put the .ex5 in MQL5 → Experts, then refresh Navigator.</p>
       </div>
     </details>
 
@@ -390,7 +406,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
       <summary>A licence error appears on the chart</summary>
       <div class="body">
         <span class="cause">Usual cause — URL missing, or account not bound</span>
-        <p>First confirm the WebRequest URL is listed exactly as https://a689.link. If it is there and the error stays, the licence is probably not bound to that MT5 account number yet — send your account number and registered email on Telegram so it can be checked.</p>
+        <p>Check the WebRequest URL is exactly https://a689.link. If the error stays, your account may not be activated yet. Send your account number and registered email on Telegram.</p>
       </div>
     </details>
 
@@ -398,7 +414,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
       <summary>The EA loads but never opens an order</summary>
       <div class="body">
         <span class="cause">Usual cause — wrong symbol, or a pause is active</span>
-        <p>Check the chart is XAUUSD on your broker's exact symbol name — some brokers use a suffix. If the symbol is right, the EA may be sitting out a rollover window or a high-impact news pause, which is normal behaviour rather than a fault.</p>
+        <p>Check the chart uses your broker’s XAUUSD symbol (some add a suffix). If it does, the EA may be paused for rollover or high-impact news. This is normal.</p>
       </div>
     </details>
 
@@ -406,7 +422,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
       <summary>It was running, then stopped mid-session</summary>
       <div class="body">
         <span class="cause">Usual cause — licence recheck failed</span>
-        <p>The licence is verified every hour. If it expires, is revoked, or the recheck cannot reach the server, pending orders are removed and no new trades open. Confirm the WebRequest URL is still listed and your internet connection is stable.</p>
+        <p>The licence is checked every hour. If it expired or can’t reach the server, pending orders are removed and no new trades open. Check the WebRequest URL and your internet.</p>
       </div>
     </details>
 
@@ -414,7 +430,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
       <summary>Trades were left unmanaged overnight</summary>
       <div class="body">
         <span class="cause">Usual cause — terminal was closed</span>
-        <p>The EA can only manage a basket while MetaTrader is running. Closing the terminal or letting the machine sleep leaves open positions with no grid management and no basket exit. Run it on a Windows VPS if you cannot keep the terminal on.</p>
+        <p>The EA only works while MT5 is running. If MT5 closes or the PC sleeps, open trades aren’t managed. Use a Windows VPS if you can’t keep it on.</p>
       </div>
     </details>
   </div>
@@ -424,8 +440,8 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
   <div class="narrow" style="display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap;align-items:center">
     <div>
       <div class="tag tag--brass" style="margin-bottom:12px">Still stuck</div>
-      <h2 style="margin-bottom:12px">Send two things and it can be checked.</h2>
-      <p class="lede">Your registered email address and your MT5 account number. With those, the licence status can be looked up directly instead of guessing from a screenshot.</p>
+      <h2 style="margin-bottom:12px">Still stuck? Send us two things.</h2>
+      <p class="lede">Your registered email and MT5 account number. We can then check your licence directly.</p>
     </div>
     <a class="btn btn--brass" href="https://t.me/mrcracks">Message Telegram</a>
   </div>
@@ -435,7 +451,7 @@ footer{border-top:1px solid var(--rule);padding:30px 0 46px;font-family:var(--da
 <div class="risk">
   <div class="wrap risk-in">
     <div class="tag">Risk disclosure</div>
-    <p>A correct install is not a safe trade. Trading leveraged gold can result in the loss of your deposit, and grid recovery increases exposure while a position is in drawdown, so floating loss is a normal part of how this EA operates. Once you have registered through our IB link, test the setup on a demo account first, size your lots to your equity, and only trade capital you can afford to lose. GOLD CRACK EA is not a profit guarantee.</p>
+    <p>A correct install doesn’t remove trading risk. Trading leveraged gold can lose your deposit, and grid recovery adds exposure during drawdown, so floating loss is normal. After registering through our IB link, test on a demo account first, size lots to your equity, and only use money you can afford to lose. Gold Crack EA does not guarantee profit.</p>
   </div>
 </div>
 

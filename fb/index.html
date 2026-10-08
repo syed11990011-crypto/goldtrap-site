@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -407,6 +407,36 @@ grid-template-columns: 3rem 1fr auto;
 .link-card { gap: .65rem; }
 .label { font-size: .86rem; }
 }
+
+/* bright theme v4 + footer at bottom */
+html:not(.dark){
+--bg:#FFF8EC;--panel:#FFFFFF;--card:#FFFFFF;--accent:#F97316;--accent-2:#FBA14B;
+--text:#16181F;--muted:#4E5566;--line:rgba(196,120,30,.30);
+--shadow:0 26px 70px -20px rgba(150,90,10,.30);
+}
+html:not(.dark) body{background:radial-gradient(circle at 50% 12%,rgba(255,196,77,.38),transparent 22rem),linear-gradient(180deg,#FFF3DF 0%,#FFFBF4 48%,#FFF4E4 100%);background-attachment:fixed}
+html:not(.dark) .link-card{background:linear-gradient(135deg,#FFF3E4,#FFFFFF 70%);border:1.5px solid rgba(249,115,22,.55);box-shadow:0 1px 2px rgba(22,24,31,.05),0 12px 28px -14px rgba(180,90,10,.38)}
+html:not(.dark) .link-card:hover{background:#FFF1E0;border-color:#F97316;box-shadow:0 16px 32px -12px rgba(249,115,22,.45)}
+html:not(.dark) .status{color:#3A4050}
+html:not(.dark) .socials a{color:#B8580A}
+html:not(.dark) .socials a:hover{color:#F97316}
+html:not(.dark) .footer-credit{color:#4E5566}
+html:not(.dark) .pill,html:not(.dark) .round{border-color:rgba(196,120,30,.35);box-shadow:0 4px 14px -6px rgba(150,90,10,.3)}
+html:not(.dark) .online-dot{border-color:#FFFFFF}
+.socials{margin-top:auto!important;padding-top:2.5rem;margin-bottom:.4rem!important}
+.footer-credit{margin-top:.9rem}
+@media (max-width:767px){
+html:not(.dark) body{background:radial-gradient(circle at 50% 10%,rgba(255,196,77,.38),transparent 20rem),linear-gradient(180deg,#FFF3DF 0%,#FFFBF4 48%,#FFF4E4 100%)}
+.page{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;padding-bottom:1.5rem}
+.shell{flex:1;display:flex;flex-direction:column}
+}
+
+/* primary CTA: Telegram channel */
+.links .link-card:first-child{min-height:78px;background:linear-gradient(135deg,#F97316,#FB923C)!important;border:1.5px solid #EA6A0C!important;color:#fff;box-shadow:0 16px 34px -12px rgba(249,115,22,.6)!important}
+.links .link-card:first-child:hover{background:linear-gradient(135deg,#EA6A0C,#F97316)!important}
+.links .link-card:first-child .label{font-size:1.02rem;font-weight:800}
+.links .link-card:first-child .icon-box{background:#FFFFFF;color:#F97316;border-color:rgba(255,255,255,.7)}
+.links .link-card:first-child .badge{background:#FFFFFF;color:#D9480F}
 </style>
 </head>
 <body>

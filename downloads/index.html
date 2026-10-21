@@ -200,6 +200,14 @@ footer{font-size:.76rem}
 .feats li{position:relative;padding-left:24px;color:#FFFFFF;font-weight:600;font-size:.95rem}
 .feats li::before{content:"";position:absolute;left:0;top:.28em;width:15px;height:15px;border-radius:50%;background:#FFC94D;box-shadow:inset 0 0 0 4px #14284B}
 @media(max-width:900px){.guides-grid{grid-template-columns:1fr}.gbtns .btn{flex:1 1 100%}}
+.readfirst{display:flex;align-items:center;gap:14px;margin:0 0 30px;padding:16px 20px;background:#14284B;border:1.5px solid #E0A93A;border-left:6px solid #FFC94D;color:#FFFFFF;text-decoration:none;box-shadow:0 14px 30px -16px rgba(20,40,75,.6)}
+.readfirst strong{color:#FFC94D}
+.readfirst-ico{flex:none;width:34px;height:34px;border-radius:50%;background:#FFC94D;color:#14284B;font-family:var(--display);font-weight:700;font-size:1.2rem;display:flex;align-items:center;justify-content:center}
+.readfirst-go{margin-left:auto;flex:none;font-family:var(--data);font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#14284B;background:#FFC94D;padding:9px 13px}
+.readfirst:hover .readfirst-go{background:#FFFFFF}
+.guide-link{align-self:center;font-family:var(--data);font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#FFD27A;text-decoration:underline;text-underline-offset:3px}
+.guides{scroll-margin-top:90px}
+@media(max-width:620px){.readfirst{flex-wrap:wrap}.readfirst-go{margin-left:48px}}
 </style>
 </head>
 <body>
@@ -225,6 +233,12 @@ footer{font-size:.76rem}
     </div>
   </section>
 
+  <a class="readfirst" href="#guides">
+    <span class="readfirst-ico" aria-hidden="true">!</span>
+    <span><strong>Read the user guide before you install.</strong> It explains how to set up the EA and what every setting does. Find it below.</span>
+    <span class="readfirst-go">User guides &darr;</span>
+  </a>
+
   <section class="files" aria-label="EA files">
     <article class="file file--pilot">
       <span class="new">New</span>
@@ -241,6 +255,7 @@ footer{font-size:.76rem}
       </ul>
       <span class="fname"><span>File</span>GC_PILOT.ex5</span>
       <a class="btn" href="/downloads/GC_PILOT.ex5" download>Download GC Pilot EA</a>
+      <a class="guide-link" href="#guides">Read the user guide first &darr;</a>
     </article>
     <article class="file">
       <span class="new">New</span>
@@ -276,7 +291,7 @@ footer{font-size:.76rem}
     <a class="btn btn--sm" href="/how-to-register/">Get free licence</a>
   </div>
 
-  <section class="guides" aria-label="User guides">
+  <section class="guides" id="guides" aria-label="User guides">
     <span class="tag">User guides</span>
     <div class="guides-grid">
       <article class="gcard gcard--pilot">

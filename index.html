@@ -402,6 +402,16 @@ header{background:rgba(255,251,242,.88)}
 .brand img{border-radius:50%!important}
 /* bigger round logo, full logo inside circle */
 .brand img{width:50px!important;height:50px!important;padding:2.5px;box-sizing:border-box;object-fit:contain;background:#010A1F;border:1.5px solid #D9A441;box-shadow:0 4px 12px -4px rgba(20,40,75,.45)}
+.antispike{display:flex;align-items:center;gap:12px;padding:12px 14px;background:linear-gradient(135deg,#F5A524 0%,#FFD86B 55%,#F5A524 100%);border:1.5px solid #FFE29A;position:relative;overflow:hidden;box-shadow:0 10px 22px -12px rgba(245,165,36,.75)}
+.antispike:after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:asShine 3.2s ease-in-out infinite}
+@keyframes asShine{0%,55%{left:-60%}100%{left:130%}}
+@media(prefers-reduced-motion:reduce){.antispike:after{animation:none;display:none}}
+.as-ico{flex:none;width:40px;height:40px;border-radius:50%;background:#14284B;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(255,255,255,.55)}
+.as-ico svg{width:24px;height:24px;fill:none;stroke:#FFC94D;stroke-width:2;stroke-linejoin:round}
+.as-ico svg path:last-child{fill:#FFC94D;stroke:none}
+.as-txt{display:flex;flex-direction:column;line-height:1.05;position:relative;z-index:1}
+.as-k{font-family:var(--data,ui-monospace),monospace;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#14284B;opacity:.8}
+.as-t{font-family:var(--display,system-ui);font-size:1.45rem;font-weight:800;letter-spacing:.04em;color:#14284B;margin-top:3px}
 </style>
 </head>
 <body>
@@ -493,7 +503,11 @@ header{background:rgba(255,251,242,.88)}
           <span class="platform">MT5</span>
         </div>
         <h3>GC Pilot EA</h3>
-        <p>Anti spike. Places a buy stop and sell stop, the market picks the direction, and all positions close together at one basket TP.</p>
+        <div class="antispike" style="margin:0 0 14px">
+        <span class="as-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.4 9.3-8 11-4.6-1.7-8-6-8-11V5l8-3z"/><path d="M13 6l-4 7h3l-1 5 4-7h-3l1-5z"/></svg></span>
+        <span class="as-txt"><span class="as-k">Key feature</span><span class="as-t">ANTI SPIKE</span></span>
+      </div>
+        <p>Places a buy stop and sell stop, the market picks the direction, and all positions close together at one basket TP.</p>
         <div class="dl-meta"><span>GC_PILOT.ex5</span><span>Version 1.0</span></div>
         <a class="btn btn--amber" href="/downloads/GC_PILOT.ex5" download="GC_PILOT.ex5">Download GC Pilot EA</a>
         <a class="btn btn--ghost dl-alt" href="/downloads/GC_Pilot_EA_User_Guide_EN.pdf" target="_blank" rel="noopener">Read the user guide</a>

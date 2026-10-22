@@ -14,7 +14,7 @@
 <link rel="icon" href="/assets/logo.png">
 <meta name="theme-color" content="#FFFBF2">
 <meta name="facebook-domain-verification" content="xxsej3sdfpp8tkeicwdxehi8zxl0i6">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to start copy trading with Mr Cracks","step":[{"@type":"HowToStep","name":"Register and verify","text":"Register with Vantage through the Mr Cracks link and verify your account."},{"@type":"HowToStep","name":"Open a Copy Trading account","text":"Open a Copy Trading account (Standard STP, USD) and deposit at least $50."},{"@type":"HowToStep","name":"Copy the strategy","text":"In the Vantage app go to Discover, Community, search the GC Pilot strategy and tap Copy."}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"How to start copy trading with Mr Cracks","step":[{"@type":"HowToStep","name":"Register and verify","text":"Register with Vantage through the Mr Cracks link and verify your account."},{"@type":"HowToStep","name":"Open a Copy Trading account","text":"Open a Copy Trading account (Standard Cent STP, USC) and deposit at least 5,000 USC ($50)."},{"@type":"HowToStep","name":"Copy the strategy","text":"In the Vantage app go to Discover, Community, search the GC Pilot strategy and tap Copy."}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -217,6 +217,36 @@ footer a:hover{color:var(--text)}
 .pledge b{display:block;font-family:var(--display);font-size:1.08rem;color:#14284B;margin-bottom:2px}
 .pledge p{color:#40475A;font-size:.98rem}
 @media(max-width:860px){.why-grid{grid-template-columns:1fr}.why{padding:56px 0}}
+
+/* v3 simple */
+.why-card p{font-size:1rem}
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.s3{background:#fff;border:1px solid rgba(176,120,20,.32);border-top:4px solid var(--navy);border-radius:18px;padding:24px 22px;box-shadow:0 14px 34px -18px rgba(120,80,10,.32);display:flex;flex-direction:column}
+.s3 .n{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#FFD27A;font-family:var(--display);font-weight:800;font-size:1.1rem;margin-bottom:16px}
+.s3 h3{font-size:1.25rem;margin-bottom:8px}
+.s3 > p{color:var(--muted);font-size:1rem}
+.s3 .btn{margin-top:auto;width:100%}
+.s3 .rows{margin:14px 0 16px}
+.s3 .path{margin:14px 0 4px}
+.kv{list-style:none;padding:0;margin:14px 0 16px;display:grid;gap:8px}
+.kv li{display:flex;justify-content:space-between;gap:10px;padding:10px 14px;border-radius:10px;background:var(--cream);font-size:.95rem}
+.kv li span{color:#2F3445;font-weight:600}
+.kv li b{font-family:var(--display);color:var(--navy);text-align:right}
+.kv li b.on{color:#fff;background:var(--green);font-size:.78rem;padding:3px 10px;border-radius:999px;align-self:center}
+.note{margin-top:20px;text-align:center;font-size:.95rem;color:#2F3445}
+.note a{color:var(--gold-deep);font-weight:700}
+@media(max-width:900px){.steps3{grid-template-columns:1fr}}
+
+/* highlight band */
+.why{border-top:4px solid #F5A524;border-bottom:4px solid #F5A524}
+.why h2{font-size:clamp(2.1rem,4.2vw,3.1rem);max-width:none}
+.why .lede{font-size:1.15rem;color:#fff}
+.why-card{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,201,77,.55)}
+.why-card h3{font-size:1.3rem}
+.why-card p{font-size:1.05rem;color:#E6EBF5}
+.pledge{border-left:6px solid #F5A524}
+.pledge b{font-size:1.15rem}
+.pledge p{font-size:1.02rem;color:#262A35}
 </style>
 </head>
 <body>
@@ -243,163 +273,91 @@ footer a:hover{color:var(--text)}
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow"><i></i>Mr Cracks Copy Trade</span>
-      <h1>Copy my gold trades, <span class="gold">automatically.</span></h1>
-      <p class="lede">Link your Vantage account to the GC Pilot strategy. Every trade I open or close is copied to your account in real time, scaled to your balance. No software, no setup, no chart watching.</p>
+      <h1>Copy our gold trades, <span class="gold">automatically.</span></h1>
+      <p class="lede">Link your Vantage account to our GC Pilot strategy. Every trade is mirrored in your account in real time.</p>
       <div class="cta-row">
         <a class="btn btn--lg" href="#steps">Get started</a>
-        <a class="btn btn--lg tg" href="https://t.me/mrcracks" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/></svg>Talk to me first</a>
+        <a class="btn btn--lg tg" href="https://t.me/mrcracks" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/></svg>Ask me</a>
       </div>
       <ul class="trust">
-        <li>Funds stay in your account</li>
+        <li>Your money stays in your account</li>
         <li>Stop anytime</li>
-        <li>No EA or VPS</li>
       </ul>
     </div>
     <aside class="ticket" aria-label="Copy trade summary">
-      <span class="lbl">Minimum to start</span>
+      <span class="lbl">Start from</span>
       <div class="big">$50</div>
-      <p class="sub">A higher balance gives the strategy more room and lowers your risk on each trade.</p>
-      <ul>
-        <li><i>1</i>Create and verify a Vantage account</li>
-        <li><i>2</i>Open a Copy Trading account</li>
-        <li><i>3</i>Follow the GC Pilot strategy</li>
-      </ul>
       <hr>
       <div class="foot"><span>Broker</span><b>Vantage</b></div>
-      <div class="foot" style="margin-top:8px"><span>Market</span><b>Gold (XAUUSD)</b></div>
+      <div class="foot" style="margin-top:8px"><span>Account</span><b>Cent (USC)</b></div>
+      <div class="foot" style="margin-top:8px"><span>Strategy</span><b>GC Pilot</b></div>
     </aside>
   </div>
 </section>
 
 <section class="why">
   <div class="wrap">
-    <span class="eyebrow"><i></i>Why copy trade</span>
-    <h2>Get the power of our EA, <span>without the big capital.</span></h2>
-    <p class="lede">Running an EA on your own account usually needs $300 to $1,000 or more, plus a VPS to keep it online 24/7. Copy trade removes that barrier. Start from $50 and let our team run the EA for you.</p>
+    <span class="eyebrow"><i></i>Made for small capital</span>
+    <h2>Experience our EA, <span>without the big capital.</span></h2>
+    <p class="lede">Running our EA on your own needs a large account. Copy trade lets you join with a small one, while you sit back and follow the results.</p>
     <div class="why-grid">
-      <div class="why-card"><div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h14a2 2 0 0 1 2 2v3"/><path d="M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M21 12h-4a2 2 0 0 0 0 4h4z"/></svg></div><h3>Start from $50</h3><p>No need for <b>$300+</b> capital to use our EA. Start small and grow at your own pace.</p></div>
-      <div class="why-card"><div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6"/></svg></div><h3>VPS fully covered</h3><p>Our team pays the <b>$50/month</b> VPS that keeps the EA running 24/7. You pay nothing for it.</p></div>
-      <div class="why-card"><div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20c.8-3.4 3.3-5.5 6.5-5.5s5.7 2.1 6.5 5.5"/><path d="M17 4.5a3 3 0 0 1 0 6.2M20.5 18.5c-.3-1.6-1-2.9-2.1-3.8"/></svg></div><h3>Run by a professional team</h3><p>Managed by a dedicated, paid team of experienced traders who handle the EA, settings and monitoring every day. You simply follow the results.</p></div>
+      <div class="why-card"><div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0 0 4h14a2 2 0 0 1 2 2v3"/><path d="M3 5v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M21 12h-4a2 2 0 0 0 0 4h4z"/></svg></div><h3>Low capital</h3><p>Start from <b>$50</b> instead of <b>$300+</b>.</p></div>
+      <div class="why-card"><div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"/><path d="M5.5 20c.8-3.4 3.3-5.5 6.5-5.5s5.7 2.1 6.5 5.5"/><path d="M17 4.5a3 3 0 0 1 0 6.2M20.5 18.5c-.3-1.6-1-2.9-2.1-3.8"/></svg></div><h3>Managed by our team</h3><p>Our paid, professional team runs the EA for you.</p></div>
+      <div class="why-card"><div class="why-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6.5h.01M7 17.5h.01M11 6.5h6M11 17.5h6"/></svg></div><h3>VPS fully covered</h3><p>We pay the <b>$50/month</b> VPS. You pay nothing.</p></div>
     </div>
-    <div class="pledge"><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Our commitment</b><p>Our team will do everything we can to protect your capital on every trade. Results still depend on market conditions.</p></div></div>
+    <div class="pledge"><span class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><div><b>Our commitment</b><p>Our team does its best to protect your capital. Results depend on the market.</p></div></div>
   </div>
 </section>
 
 <section id="steps">
-  <div class="narrow">
-    <div class="sec-head">
-      <span class="eyebrow"><i></i>Setup guide</span>
-      <h2>Set up in three steps.</h2>
-      <p class="lede">Everything is done inside Vantage. Once your account is verified, setup takes about 10 minutes.</p>
-    </div>
-
-    <div class="timeline">
-      <div class="step">
-        <span class="n">1</span>
-        <div class="step-card">
-          <h3>Create and verify your Vantage account</h3>
-          <p>Sign up using the Mr Cracks link below. Then complete verification by uploading your ID and proof of address. You can do this on the Vantage website or in the app.</p>
-          <div class="step-actions">
-            <a class="btn" href="https://vigco.co/la-scom-inv/ms/62sjKrb4" target="_blank" rel="nofollow noopener">Create Vantage account →</a>
-            <a class="btn btn--ghost" href="#existing">I already have an account</a>
-          </div>
-          <div class="brk"><span>IB ID: 32363667</span><span>Invitation code: 62sjKrb4</span></div>
-        </div>
-      </div>
-
-      <div class="step">
-        <span class="n">2</span>
-        <div class="step-card">
-          <h3>Open a Copy Trading account</h3>
-          <p>In the Vantage portal or app, open a new live account using the details below. Then deposit at least <b>$50</b>.</p>
-          <dl class="settings">
-            <div class="set"><dt>Platform</dt><dd>Copy Trading</dd></div>
-            <div class="set"><dt>Account type</dt><dd>Standard STP</dd></div>
-            <div class="set"><dt>Currency</dt><dd>USD</dd></div>
-            <div class="set"><dt>Deposit</dt><dd>$50 or more</dd></div>
-          </dl>
-        </div>
-      </div>
-
-      <div class="step">
-        <span class="n">3</span>
-        <div class="step-card">
-          <h3>Follow the GC Pilot strategy</h3>
-          <p>Open the Vantage app and go to:</p>
-          <div class="path"><span>Discover</span>→<span>Community</span>→<span>Search <b>GC Pilot</b></span></div>
-          <p style="margin-top:16px;color:var(--muted)">Tap <b>Copy</b>, enter these settings, then confirm.</p>
-          <dl class="rows">
-            <div><dt>Copy mode</dt><dd>Equity Ratio</dd></div>
-            <div><dt>Investment amount</dt><dd>$50 or more</dd></div>
-            <div><dt>Stop loss</dt><dd>95%</dd></div>
-            <div><dt>Lot round-up</dt><dd class="on">ON</dd></div>
-            <div><dt>Copy opened trades</dt><dd class="on">ON</dd></div>
-          </dl>
-          <div class="done">That’s it. Your account is now linked to the strategy.</div>
-        </div>
-      </div>
-    </div>
-
-    <p class="fine" id="existing" style="margin-top:26px"><b>Already with Vantage?</b> Contact Vantage support and request an IB change to <b>32363667</b>, then continue from step 2. Need help? <a href="https://t.me/mrcracks" target="_blank" rel="noopener" style="color:var(--gold-deep);font-weight:700">Message me on Telegram</a>.</p>
-  </div>
-</section>
-
-<section class="alt">
   <div class="wrap">
-    <div class="duo">
-      <div class="box">
-        <span class="eyebrow"><i></i>How copy trading works</span>
-        <h3 style="margin-top:16px">You keep control. The strategy does the work.</h3>
-        <p>Copy trading connects your account to an experienced trader’s strategy. When a position opens or closes, the same happens in your account automatically.</p>
-        <ul>
-          <li>Trades are sized to your own balance</li>
-          <li>Your money stays in your own Vantage account</li>
-          <li>Pause, stop or withdraw whenever you choose</li>
+    <div class="sec-head">
+      <span class="eyebrow"><i></i>3 steps</span>
+      <h2>How to start.</h2>
+    </div>
+    <div class="steps3">
+      <div class="s3">
+        <span class="n">1</span>
+        <h3>Register &amp; verify</h3>
+        <p>Sign up with Vantage using our link, then verify your ID.</p>
+        <ul class="kv"><li><span>IB ID</span><b>32363667</b></li><li><span>Invitation code</span><b>62sjKrb4</b></li></ul>
+        <a class="btn" href="https://vigco.co/la-scom-inv/ms/62sjKrb4" target="_blank" rel="nofollow noopener">Register with Vantage</a>
+      </div>
+      <div class="s3">
+        <span class="n">2</span>
+        <h3>Open a cent account</h3>
+        <p>Open a new Copy Trading account and deposit.</p>
+        <ul class="kv">
+          <li><span>Platform</span><b>Copy Trading</b></li>
+          <li><span>Account type</span><b>Standard Cent STP</b></li>
+          <li><span>Currency</span><b>USC</b></li>
+          <li><span>Deposit</span><b>5,000 USC ($50)+</b></li>
         </ul>
       </div>
-      <div class="box box--gold">
-        <span class="eyebrow"><i></i>Trading principles</span>
-        <h3 style="margin-top:16px">Protect capital first.</h3>
-        <p>This strategy is built for the long term. Keeping drawdown under control comes before chasing returns, so you won’t find promises of fixed monthly profit here.</p>
-        <ul>
-          <li>Risk management over fast gains</li>
-          <li>Steady growth, measured over months</li>
-          <li>Better results with patience and proper capital</li>
+      <div class="s3">
+        <span class="n">3</span>
+        <h3>Copy GC Pilot</h3>
+        <p>In the Vantage app: <b>Discover → Community</b>, search <b>GC Pilot</b>, tap <b>Copy</b>.</p>
+        <ul class="kv">
+          <li><span>Copy mode</span><b>Equity Ratio</b></li>
+          <li><span>Investment</span><b>5,000 USC+</b></li>
+          <li><span>Stop loss</span><b>95%</b></li>
+          <li><span>Lot round-up</span><b class="on">ON</b></li>
+          <li><span>Copy opened trades</span><b class="on">ON</b></li>
         </ul>
       </div>
     </div>
-
-    <div class="mini-head"><h3>Choose the option that suits you</h3></div>
-    <div class="compare">
-      <a class="cmp on" href="#steps"><span class="tag">Easiest</span><b>Copy Trade</b><span>Everything runs inside the Vantage app. No setup needed.</span><em>From $50 →</em></a>
-      <a class="cmp" href="/how-to-register/"><span class="tag">Free</span><b>Gold Crack EA licence</b><span>Run the EA yourself on your own MT5 account, at no cost.</span><em>Get it free →</em></a>
-      <a class="cmp" href="/#pricing"><span class="tag">Paid</span><b>Multi-account licence</b><span>Use the EA with any MT5 broker on several accounts.</span><em>View pricing →</em></a>
-    </div>
+    <p class="note">Already with Vantage? Ask support to change your IB to <b>32363667</b>, then start from step 2. Stuck? <a href="https://t.me/mrcracks" target="_blank" rel="noopener">Message me</a>.</p>
   </div>
 </section>
+
 
 <section>
-  <div class="narrow">
-    <div class="sec-head">
-      <span class="eyebrow"><i></i>FAQ</span>
-      <h2>Before you start.</h2>
-    </div>
-    <details open><summary>What is the minimum deposit?</summary><p>$50. You can start small, but a larger balance gives the strategy more room and lowers the risk on each trade.</p></details>
-    <details><summary>Do I need MT5, a VPS or the EA?</summary><p>No. Copying runs on Vantage’s servers, so trades are copied even when your phone or computer is off.</p></details>
-    <details><summary>Who holds my money?</summary><p>You do. Your funds stay in your own Vantage account, under your name. I have no access to deposit or withdraw from it.</p></details>
-    <details><summary>Can I stop copying?</summary><p>Yes. You can stop copying or withdraw your funds from the Vantage app at any time.</p></details>
-    <details><summary>Why Vantage only?</summary><p>The GC Pilot strategy is listed on Vantage’s copy trading platform, so your Copy Trading account needs to be with Vantage.</p></details>
-    <details><summary>Are profits guaranteed?</summary><p>No. Copy trading is still trading, and results depend on market conditions and your capital. Only use money you can afford to lose.</p></details>
-  </div>
-</section>
-
-<section style="padding-top:0">
   <div class="wrap">
     <div class="final">
-      <h2>Start copying <span>in minutes.</span></h2>
-      <p>Create your Vantage account today and follow the GC Pilot strategy from $50.</p>
+      <h2>Start copying <span>today.</span></h2>
       <div class="cta-row">
-        <a class="btn btn--lg" href="https://vigco.co/la-scom-inv/ms/62sjKrb4" target="_blank" rel="nofollow noopener">Create Vantage account</a>
+        <a class="btn btn--lg" href="https://vigco.co/la-scom-inv/ms/62sjKrb4" target="_blank" rel="nofollow noopener">Register with Vantage</a>
         <a class="btn btn--lg btn--ghost" href="https://t.me/mrcrackmy" target="_blank" rel="noopener">Join Telegram channel</a>
       </div>
     </div>
@@ -415,7 +373,7 @@ footer a:hover{color:var(--text)}
 <div class="risk">
   <div class="wrap">
     <span class="eyebrow" style="color:var(--muted)"><i style="background:var(--muted)"></i>Risk disclosure</span>
-    <p>Trading gold with leverage carries a high level of risk, and copy trading does not remove that risk. You may lose part or all of your deposit. Past performance is not a reliable indicator of future results. Only trade with money you can afford to lose.</p>
+    <p>Trading gold with leverage is high risk and copy trading does not remove that risk. You may lose part or all of your deposit. Past results don’t guarantee future results.</p>
   </div>
 </div>
 

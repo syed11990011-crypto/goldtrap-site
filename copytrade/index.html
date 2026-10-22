@@ -271,6 +271,13 @@ footer a:hover{color:var(--text)}
 .final .cta-row{margin-top:20px}
 .final .btn--lg{padding:14px 24px;font-size:1rem}
 @media(max-width:860px){.ticket{justify-self:stretch;max-width:none}.why{padding:44px 0}}
+
+/* trust: navy icon style */
+.trust--icon{gap:12px 26px}
+.trust--icon li::before{display:none}
+.trust--icon li{gap:10px;font-size:.98rem}
+.trust--icon i{flex:none;width:34px;height:34px;border-radius:10px;background:var(--navy);color:#FFC94D;display:grid;place-items:center}
+.trust--icon svg{width:18px;height:18px}
 </style>
 </head>
 <body>
@@ -303,9 +310,9 @@ footer a:hover{color:var(--text)}
         <a class="btn btn--lg" href="#steps">Get started</a>
         <a class="btn btn--lg tg" href="https://t.me/mrcracks" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4"/></svg>Ask me</a>
       </div>
-      <ul class="trust">
-        <li>Your money stays in your account</li>
-        <li>Stop anytime</li>
+      <ul class="trust trust--icon">
+        <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></i>Your money stays in your account</li>
+        <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 9v6M14 9v6"/></svg></i>Stop anytime</li>
       </ul>
     </div>
     <aside class="ticket" aria-label="Copy trade summary">
@@ -315,6 +322,7 @@ footer a:hover{color:var(--text)}
       <div class="foot"><span>Broker</span><b>Vantage</b></div>
       <div class="foot" style="margin-top:8px"><span>Account</span><b>Cent (USC)</b></div>
       <div class="foot" style="margin-top:8px"><span>Strategy</span><b>GC Pilot</b></div>
+      <div class="foot" style="margin-top:8px"><span>Pair</span><b>XAUUSD.sc</b></div>
     </aside>
   </div>
 </section>
